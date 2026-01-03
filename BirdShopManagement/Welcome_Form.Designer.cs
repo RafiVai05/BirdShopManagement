@@ -42,7 +42,7 @@
             // 
             // sign_up_btn
             // 
-            this.sign_up_btn.Location = new System.Drawing.Point(122, 203);
+            this.sign_up_btn.Location = new System.Drawing.Point(104, 203);
             this.sign_up_btn.Name = "sign_up_btn";
             this.sign_up_btn.Size = new System.Drawing.Size(290, 87);
             this.sign_up_btn.TabIndex = 0;
@@ -96,7 +96,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Impact", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(145, 104);
+            this.label2.Location = new System.Drawing.Point(154, 104);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(217, 53);
             this.label2.TabIndex = 4;
