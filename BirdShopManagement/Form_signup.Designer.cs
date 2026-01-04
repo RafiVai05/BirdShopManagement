@@ -1,4 +1,7 @@
-﻿namespace BirdShopManagement
+﻿using System;
+using System.Windows.Forms;
+
+namespace BirdShopManagement
 {
     partial class Form_signup
     {

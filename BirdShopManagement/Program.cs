@@ -16,7 +16,10 @@ namespace BirdShopManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Welcome_Form());
+
+            DatabaseInitializer.Initialize();
+
+            Application.Run(new Dashboard());
         }
     }
 }
