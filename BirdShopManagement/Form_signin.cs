@@ -57,6 +57,9 @@ namespace BirdShopManagement
                     {
                         MessageBox.Show("Sign In successful!");
 
+                        Product_Form product = new Product_Form();
+                        product.Show();
+                        this.Hide();
 
                     }
                     else
@@ -86,6 +89,10 @@ namespace BirdShopManagement
             Welcome_Form welcome = new Welcome_Form();
             welcome.Show();
             this.Hide();
+        }
+        private void Form_signin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

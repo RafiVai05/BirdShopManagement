@@ -197,6 +197,9 @@
     <EmbeddedResource Include="Form_signup.resx">
       <DependentUpon>Form_signup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Product_Form.resx">
+      <DependentUpon>Product_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Welcome_Form.resx">
       <DependentUpon>Welcome_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,6 +211,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -222,6 +226,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bird-bluebird-bluebird-on-perch-blue-preview.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\71mx5drS-wL.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />
