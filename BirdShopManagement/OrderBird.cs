@@ -26,5 +26,12 @@ namespace BirdShopManagement
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Dashboard db = new Dashboard();
+            db.Show();
+            this.Hide();
+        }
     }
 }
