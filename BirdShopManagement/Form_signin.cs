@@ -55,7 +55,7 @@ namespace BirdShopManagement
 
                     if (result > 0)
                     {
-                        MessageBox.Show("Login successful!");
+                        MessageBox.Show("Sign In successful!");
 
 
                     }
