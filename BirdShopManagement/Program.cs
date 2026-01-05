@@ -19,7 +19,7 @@ namespace BirdShopManagement
 
             DatabaseInitializer.Initialize();
 
-            Application.Run(new Dashboard());
+            Application.Run(new Welcome_Form());
         }
     }
 }

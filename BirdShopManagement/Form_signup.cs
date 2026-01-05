@@ -51,8 +51,7 @@ namespace BirdShopManagement
 
                     string checkQuery =
                         "SELECT COUNT(*) FROM signInTab WHERE Username=@u";
-                        
-
+                       
                     SqlCommand checkCmd = new SqlCommand(checkQuery, con);
                     checkCmd.Parameters.AddWithValue("@u", username);
 
@@ -61,6 +60,7 @@ namespace BirdShopManagement
                     {
                         MessageBox.Show("Username already exists");
                         return;
+
                     }
 
 
