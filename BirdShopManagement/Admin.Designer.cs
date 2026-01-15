@@ -46,10 +46,12 @@
             this.button8 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.rightPanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
+            this.rightPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -121,19 +123,19 @@
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(386, 12);
+            this.panel2.Location = new System.Drawing.Point(190, 15);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(413, 426);
+            this.panel2.Size = new System.Drawing.Size(400, 426);
             this.panel2.TabIndex = 3;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(17, 51);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 51);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(386, 359);
+            this.dataGridView1.Size = new System.Drawing.Size(394, 359);
             this.dataGridView1.TabIndex = 1;
             // 
             // label3
@@ -157,7 +159,7 @@
             this.panel3.Controls.Add(this.button8);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Location = new System.Drawing.Point(196, 12);
+            this.panel3.Location = new System.Drawing.Point(3, 12);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(184, 426);
             this.panel3.TabIndex = 2;
@@ -230,15 +232,23 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Username:";
             // 
-            // Adminproducts
+            // rightPanel
+            // 
+            this.rightPanel.Controls.Add(this.panel2);
+            this.rightPanel.Controls.Add(this.panel3);
+            this.rightPanel.Location = new System.Drawing.Point(198, 0);
+            this.rightPanel.Name = "rightPanel";
+            this.rightPanel.Size = new System.Drawing.Size(590, 450);
+            this.rightPanel.TabIndex = 4;
+            // 
+            // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.rightPanel);
             this.Controls.Add(this.panel1);
-            this.Name = "Adminproducts";
+            this.Name = "Admin";
             this.Text = "Admin";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -247,6 +257,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.rightPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -271,5 +282,6 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel rightPanel;
     }
 }

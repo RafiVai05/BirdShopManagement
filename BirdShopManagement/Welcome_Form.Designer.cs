@@ -239,6 +239,16 @@ namespace BirdShopManagement
             this.comboBox1.TabIndex = 68;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(91, 37);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Admin";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.admin_btn_Click);
+            // 
             // Welcome_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
