@@ -10,28 +10,31 @@ using System.Windows.Forms;
 
 namespace BirdShopManagement
 {
-    public partial class OrderBird: Form
+    public partial class Admin : Form
     {
-        public OrderBird()
+        public Admin()
         {
             InitializeComponent();
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void dashboard_btn_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void employee_btn_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void customer_btn_Click(object sender, EventArgs e)
         {
-            Dashboard db = new Dashboard();
-            db.Show();
-            this.Hide();
+
+        }
+
+        private void logout_btn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

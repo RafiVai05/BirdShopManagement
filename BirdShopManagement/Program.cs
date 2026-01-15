@@ -17,7 +17,7 @@ namespace BirdShopManagement
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            DatabaseInitializer.Initialize();
+           
 
             Application.Run(new Welcome_Form());
         }

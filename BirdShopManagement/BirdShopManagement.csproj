@@ -167,14 +167,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dashboard.cs">
+    <Compile Include="Employee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dashboard.Designer.cs">
-      <DependentUpon>Dashboard.cs</DependentUpon>
+    <Compile Include="Employee.Designer.cs">
+      <DependentUpon>Employee.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataAccess.cs" />
-    <Compile Include="DatabaseInitializer.cs" />
+    <Compile Include="Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_signin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,23 +191,11 @@
     <Compile Include="Form_signup.Designer.cs">
       <DependentUpon>Form_signup.cs</DependentUpon>
     </Compile>
-    <Compile Include="OrderBird.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OrderBird.Designer.cs">
-      <DependentUpon>OrderBird.cs</DependentUpon>
-    </Compile>
     <Compile Include="Product_Form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Product_Form.Designer.cs">
       <DependentUpon>Product_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Welcome update.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Welcome update.Designer.cs">
-      <DependentUpon>Welcome update.cs</DependentUpon>
     </Compile>
     <Compile Include="Welcome_Form.cs">
       <SubType>Form</SubType>
@@ -213,8 +205,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Dashboard.resx">
-      <DependentUpon>Dashboard.cs</DependentUpon>
+    <EmbeddedResource Include="Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee.resx">
+      <DependentUpon>Employee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_signin.resx">
       <DependentUpon>Form_signin.cs</DependentUpon>
@@ -222,14 +217,8 @@
     <EmbeddedResource Include="Form_signup.resx">
       <DependentUpon>Form_signup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OrderBird.resx">
-      <DependentUpon>OrderBird.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Product_Form.resx">
       <DependentUpon>Product_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Welcome update.resx">
-      <DependentUpon>Welcome update.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Welcome_Form.resx">
       <DependentUpon>Welcome_Form.cs</DependentUpon>
