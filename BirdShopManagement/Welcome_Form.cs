@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BirdShopManagement
@@ -15,64 +8,6 @@ namespace BirdShopManagement
         public Welcome_Form()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void sign_in_btn_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void sign_up_btn_Click(object sender, EventArgs e)
-        {
-           
-        }
-        private void Welcome_Form_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void go2sign_up_btn_Click(object sender, EventArgs e)
-        {
-            Form_signup signup = new Form_signup();
-            signup.Show();
-            this.Hide();
-        }
-
-        private void go2sign_in_btn_Click(object sender, EventArgs e)
-        {
-            Form_signin signin = new Form_signin();
-            signin.Show();
-            this.Hide();
-        }
-
-        private void label1_Click_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void textUserName_TextChanged(object sender, EventArgs e)
@@ -85,29 +20,81 @@ namespace BirdShopManagement
 
         }
 
-        private void Registration_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
-
-        private void buttonExit_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (comboBox1.SelectedItem == null) return;
 
+            string selectedRole = comboBox1.SelectedItem.ToString();
+
+            if (selectedRole == "ADMIN")
+            {
+                
+                textUserName.Visible = true;
+                textPassword.Visible = true;
+                signin_btn.Visible = true;
+                exit_btn.Visible = true;
+
+                
+                forget_btn.Visible = false;
+                signup.Visible = false;
+                no_account_lbl.Visible = false;
+            }
+            else if (selectedRole == "EMPLOYEE" )
+            {
+                textUserName.Visible = true;
+                textPassword.Visible = true;
+                signin_btn.Visible = true;
+                exit_btn.Visible = true;
+
+                forget_btn.Visible = false;
+                signup.Visible = false;
+                no_account_lbl.Visible = false;
+            }
+            else
+            {
+                
+                textUserName.Visible = true;
+                textPassword.Visible = true;
+                signin_btn.Visible = true;
+                exit_btn.Visible = true;
+                forget_btn.Visible = true;
+                signup.Visible = true;
+            }
+        }
+        
+        private void signin_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void forget_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exit_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void signup_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Form_signup f1 = new Form_signup();
+            f1.Show();
+            Visible = false;
+        }
+
+        private void check_bx_ShowPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (check_bx_ShowPass.Checked)
+            {
+                textPassword.UseSystemPasswordChar = true;
+
+            }
+            else
+            {
+                textPassword.UseSystemPasswordChar = false;
+            }
         }
     }
 }

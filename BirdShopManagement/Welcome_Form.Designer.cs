@@ -36,16 +36,16 @@ namespace BirdShopManagement
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.Registration = new System.Windows.Forms.Button();
-            this.checkbxShowPas = new System.Windows.Forms.CheckBox();
+            this.forget_btn = new System.Windows.Forms.Button();
+            this.signup = new System.Windows.Forms.LinkLabel();
+            this.no_account_lbl = new System.Windows.Forms.Label();
+            this.signin_btn = new System.Windows.Forms.Button();
+            this.check_bx_ShowPass = new System.Windows.Forms.CheckBox();
             this.textPassword = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textUserName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.buttonExit = new System.Windows.Forms.Button();
+            this.exit_btn = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -54,9 +54,9 @@ namespace BirdShopManagement
             // 
             this.panel1.BackColor = System.Drawing.Color.MediumAquamarine;
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(2, 1);
+            this.panel1.Location = new System.Drawing.Point(-2, -5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(300, 598);
+            this.panel1.Size = new System.Drawing.Size(304, 610);
             this.panel1.TabIndex = 3;
             // 
             // label1
@@ -64,12 +64,11 @@ namespace BirdShopManagement
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(41, 359);
+            this.label1.Location = new System.Drawing.Point(32, 297);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 62);
+            this.label1.Size = new System.Drawing.Size(227, 62);
             this.label1.TabIndex = 1;
-            this.label1.Text = "    BIRD SHOP \r\nMANAGEMENT";
-            this.label1.Click += new System.EventHandler(this.label1_Click_2);
+            this.label1.Text = "      WELCOME TO\r\n ANGRY BIRD SHOP";
             // 
             // label3
             // 
@@ -99,71 +98,71 @@ namespace BirdShopManagement
             this.label7.Size = new System.Drawing.Size(143, 45);
             this.label7.TabIndex = 47;
             this.label7.Text = "SIGN IN";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // button2
+            // forget_btn
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.MediumAquamarine;
-            this.button2.Location = new System.Drawing.Point(338, 408);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(216, 35);
-            this.button2.TabIndex = 67;
-            this.button2.Text = "FORGET PASSWORD";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.forget_btn.BackColor = System.Drawing.Color.White;
+            this.forget_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.forget_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.forget_btn.ForeColor = System.Drawing.Color.MediumAquamarine;
+            this.forget_btn.Location = new System.Drawing.Point(338, 408);
+            this.forget_btn.Name = "forget_btn";
+            this.forget_btn.Size = new System.Drawing.Size(216, 35);
+            this.forget_btn.TabIndex = 67;
+            this.forget_btn.Text = "FORGET PASSWORD";
+            this.forget_btn.UseVisualStyleBackColor = false;
+            this.forget_btn.Click += new System.EventHandler(this.forget_btn_Click);
             // 
-            // linkLabel1
+            // signup
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.LinkColor = System.Drawing.Color.MediumAquamarine;
-            this.linkLabel1.Location = new System.Drawing.Point(401, 488);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(98, 16);
-            this.linkLabel1.TabIndex = 66;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Create Account";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.signup.AutoSize = true;
+            this.signup.LinkColor = System.Drawing.Color.MediumAquamarine;
+            this.signup.Location = new System.Drawing.Point(417, 488);
+            this.signup.Name = "signup";
+            this.signup.Size = new System.Drawing.Size(61, 16);
+            this.signup.TabIndex = 66;
+            this.signup.TabStop = true;
+            this.signup.Text = "SIGN UP";
+            this.signup.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.signup_LinkClicked);
             // 
-            // label5
+            // no_account_lbl
             // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.DarkGray;
-            this.label5.Location = new System.Drawing.Point(378, 472);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(143, 16);
-            this.label5.TabIndex = 65;
-            this.label5.Text = "Don\'t Have an Account";
+            this.no_account_lbl.AutoSize = true;
+            this.no_account_lbl.ForeColor = System.Drawing.Color.DarkGray;
+            this.no_account_lbl.Location = new System.Drawing.Point(378, 472);
+            this.no_account_lbl.Name = "no_account_lbl";
+            this.no_account_lbl.Size = new System.Drawing.Size(143, 16);
+            this.no_account_lbl.TabIndex = 65;
+            this.no_account_lbl.Text = "Don\'t Have an Account";
             // 
-            // Registration
+            // signin_btn
             // 
-            this.Registration.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.Registration.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Registration.FlatAppearance.BorderSize = 0;
-            this.Registration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Registration.ForeColor = System.Drawing.Color.White;
-            this.Registration.Location = new System.Drawing.Point(339, 343);
-            this.Registration.Name = "Registration";
-            this.Registration.Size = new System.Drawing.Size(216, 35);
-            this.Registration.TabIndex = 63;
-            this.Registration.Text = "SIGN IN";
-            this.Registration.UseVisualStyleBackColor = false;
-            this.Registration.Click += new System.EventHandler(this.Registration_Click);
+            this.signin_btn.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.signin_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.signin_btn.FlatAppearance.BorderSize = 0;
+            this.signin_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.signin_btn.ForeColor = System.Drawing.Color.White;
+            this.signin_btn.Location = new System.Drawing.Point(339, 343);
+            this.signin_btn.Name = "signin_btn";
+            this.signin_btn.Size = new System.Drawing.Size(216, 35);
+            this.signin_btn.TabIndex = 63;
+            this.signin_btn.Text = "SIGN IN";
+            this.signin_btn.UseVisualStyleBackColor = false;
+            this.signin_btn.Click += new System.EventHandler(this.signin_btn_Click);
             // 
-            // checkbxShowPas
+            // check_bx_ShowPass
             // 
-            this.checkbxShowPas.AutoSize = true;
-            this.checkbxShowPas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkbxShowPas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkbxShowPas.ForeColor = System.Drawing.Color.DarkGray;
-            this.checkbxShowPas.Location = new System.Drawing.Point(433, 298);
-            this.checkbxShowPas.Name = "checkbxShowPas";
-            this.checkbxShowPas.Size = new System.Drawing.Size(121, 20);
-            this.checkbxShowPas.TabIndex = 62;
-            this.checkbxShowPas.Text = "Show Password";
-            this.checkbxShowPas.UseVisualStyleBackColor = true;
+            this.check_bx_ShowPass.AutoSize = true;
+            this.check_bx_ShowPass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.check_bx_ShowPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.check_bx_ShowPass.ForeColor = System.Drawing.Color.DarkGray;
+            this.check_bx_ShowPass.Location = new System.Drawing.Point(433, 298);
+            this.check_bx_ShowPass.Name = "check_bx_ShowPass";
+            this.check_bx_ShowPass.Size = new System.Drawing.Size(121, 20);
+            this.check_bx_ShowPass.TabIndex = 62;
+            this.check_bx_ShowPass.Text = "Show Password";
+            this.check_bx_ShowPass.UseVisualStyleBackColor = true;
+            this.check_bx_ShowPass.CheckedChanged += new System.EventHandler(this.check_bx_ShowPass_CheckedChanged);
             // 
             // textPassword
             // 
@@ -210,20 +209,20 @@ namespace BirdShopManagement
             this.label8.TabIndex = 58;
             this.label8.Text = "Username";
             // 
-            // buttonExit
+            // exit_btn
             // 
-            this.buttonExit.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.buttonExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonExit.FlatAppearance.BorderSize = 0;
-            this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonExit.ForeColor = System.Drawing.Color.White;
-            this.buttonExit.Location = new System.Drawing.Point(517, 553);
-            this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(62, 35);
-            this.buttonExit.TabIndex = 59;
-            this.buttonExit.Text = "EXIT";
-            this.buttonExit.UseVisualStyleBackColor = false;
-            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+            this.exit_btn.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.exit_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.exit_btn.FlatAppearance.BorderSize = 0;
+            this.exit_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exit_btn.ForeColor = System.Drawing.Color.White;
+            this.exit_btn.Location = new System.Drawing.Point(517, 553);
+            this.exit_btn.Name = "exit_btn";
+            this.exit_btn.Size = new System.Drawing.Size(62, 35);
+            this.exit_btn.TabIndex = 59;
+            this.exit_btn.Text = "EXIT";
+            this.exit_btn.UseVisualStyleBackColor = false;
+            this.exit_btn.Click += new System.EventHandler(this.exit_btn_Click);
             // 
             // comboBox1
             // 
@@ -239,16 +238,6 @@ namespace BirdShopManagement
             this.comboBox1.TabIndex = 68;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(91, 37);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Admin";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.admin_btn_Click);
-            // 
             // Welcome_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -256,24 +245,24 @@ namespace BirdShopManagement
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(600, 600);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.buttonExit);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.exit_btn);
+            this.Controls.Add(this.forget_btn);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.signup);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.no_account_lbl);
             this.Controls.Add(this.textUserName);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textPassword);
-            this.Controls.Add(this.checkbxShowPas);
+            this.Controls.Add(this.check_bx_ShowPass);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.Registration);
+            this.Controls.Add(this.signin_btn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Welcome_Form";
             this.Text = "Welcome Form";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.signin_btn_Click);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -286,17 +275,17 @@ namespace BirdShopManagement
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private Label label7;
-        private Button button2;
-        private LinkLabel linkLabel1;
-        private Label label5;
-        private Button Registration;
-        private CheckBox checkbxShowPas;
+        private Button forget_btn;
+        private LinkLabel signup;
+        private Label no_account_lbl;
+        private Button signin_btn;
+        private CheckBox check_bx_ShowPass;
         private TextBox textPassword;
         private Label label6;
         private TextBox textUserName;
         private Label label8;
         private Label label1;
-        private Button buttonExit;
+        private Button exit_btn;
         private ComboBox comboBox1;
     }
 }
