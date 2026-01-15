@@ -197,6 +197,12 @@
     <Compile Include="Product_Form.Designer.cs">
       <DependentUpon>Product_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="textform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="textform.Designer.cs">
+      <DependentUpon>textform.cs</DependentUpon>
+    </Compile>
     <Compile Include="Welcome_Form.cs">
       <SubType>Form</SubType>
     </Compile>
