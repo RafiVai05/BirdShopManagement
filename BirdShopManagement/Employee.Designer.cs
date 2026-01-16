@@ -156,7 +156,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(121, 22);
             this.txtUsername.TabIndex = 6;
-            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
+//            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // txtPassword
             // 
@@ -164,7 +164,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(121, 22);
             this.txtPassword.TabIndex = 7;
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
+//            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // Employee
             // 

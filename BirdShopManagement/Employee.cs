@@ -1,13 +1,20 @@
 ﻿using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace BirdShopManagement
 {
     public partial class Employee : Form
     {
-        DataTable table = new DataTable();
-        int index;
+        SqlConnection con = new SqlConnection(
+            @"Data Source=localhost\SQLEXPRESS;
+              Initial Catalog=birdshopdb;
+              Integrated Security=True;
+              Encrypt=True;
+              TrustServerCertificate=True");
+
+        int empId = 0;
 
         public Employee()
         {
@@ -16,9 +23,15 @@ namespace BirdShopManagement
 
         private void Employee_Load(object sender, EventArgs e)
         {
-            table.Columns.Add("Username");
-            table.Columns.Add("Password");
-            dataGridView1.DataSource = table;
+            LoadEmployeeData();
+        }
+
+        void LoadEmployeeData()
+        {
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Employees", con);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
         }
 
         private void add_btn_Click(object sender, EventArgs e)
@@ -29,20 +42,64 @@ namespace BirdShopManagement
                 return;
             }
 
-            table.Rows.Add(txtUsername.Text, txtPassword.Text);
+            SqlCommand cmd = new SqlCommand(
+                "INSERT INTO Employees (Username, Password) VALUES (@u, @p)", con);
+
+            cmd.Parameters.AddWithValue("@u", txtUsername.Text);
+            cmd.Parameters.AddWithValue("@p", txtPassword.Text);
+
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            MessageBox.Show("Employee Added");
+            LoadEmployeeData();
             clear();
         }
 
         private void update_btn_Click(object sender, EventArgs e)
         {
-            table.Rows[index]["Username"] = txtUsername.Text;
-            table.Rows[index]["Password"] = txtPassword.Text;
+            if (empId == 0)
+            {
+                MessageBox.Show("Select a record first");
+                return;
+            }
+
+            SqlCommand cmd = new SqlCommand(
+                "UPDATE Employees SET Username=@u, Password=@p WHERE Id=@id", con);
+
+            cmd.Parameters.AddWithValue("@u", txtUsername.Text);
+            cmd.Parameters.AddWithValue("@p", txtPassword.Text);
+            cmd.Parameters.AddWithValue("@id", empId);
+
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            MessageBox.Show("Employee Updated");
+            LoadEmployeeData();
             clear();
         }
 
         private void delete_btn_Click(object sender, EventArgs e)
         {
-            table.Rows[index].Delete();
+            if (empId == 0)
+            {
+                MessageBox.Show("Select a record first");
+                return;
+            }
+
+            SqlCommand cmd = new SqlCommand(
+                "DELETE FROM Employees WHERE Id=@id", con);
+
+            cmd.Parameters.AddWithValue("@id", empId);
+
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            MessageBox.Show("Employee Deleted");
+            LoadEmployeeData();
             clear();
         }
 
@@ -53,22 +110,21 @@ namespace BirdShopManagement
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            index = e.RowIndex;
-            if (index >= 0)
+            if (e.RowIndex >= 0)
             {
-                txtUsername.Text = table.Rows[index]["Username"].ToString();
-                txtPassword.Text = table.Rows[index]["Password"].ToString();
+                empId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Id"].Value);
+                txtUsername.Text = dataGridView1.Rows[e.RowIndex].Cells["Username"].Value.ToString();
+                txtPassword.Text = dataGridView1.Rows[e.RowIndex].Cells["Password"].Value.ToString();
             }
         }
-
-        private void txtUsername_TextChanged(object sender, EventArgs e) { }
-        private void txtPassword_TextChanged(object sender, EventArgs e) { }
 
         void clear()
         {
             txtUsername.Clear();
             txtPassword.Clear();
+            empId = 0;
         }
     }
 }
+
 

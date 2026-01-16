@@ -111,7 +111,7 @@ namespace BirdShopManagement
             this.forget_btn.TabIndex = 67;
             this.forget_btn.Text = "FORGET PASSWORD";
             this.forget_btn.UseVisualStyleBackColor = false;
-            this.forget_btn.Click += new System.EventHandler(this.forget_btn_Click);
+//           this.forget_btn.Click += new System.EventHandler(this.forget_btn_Click);
             // 
             // signup
             // 
@@ -175,7 +175,7 @@ namespace BirdShopManagement
             this.textPassword.PasswordChar = '*';
             this.textPassword.Size = new System.Drawing.Size(216, 28);
             this.textPassword.TabIndex = 61;
-            this.textPassword.TextChanged += new System.EventHandler(this.textPassword_TextChanged);
+//            this.textPassword.TextChanged += new System.EventHandler(this.textPassword_TextChanged);
             // 
             // label6
             // 
@@ -197,7 +197,7 @@ namespace BirdShopManagement
             this.textUserName.Name = "textUserName";
             this.textUserName.Size = new System.Drawing.Size(216, 28);
             this.textUserName.TabIndex = 59;
-            this.textUserName.TextChanged += new System.EventHandler(this.textUserName_TextChanged);
+//            this.textUserName.TextChanged += new System.EventHandler(this.textUserName_TextChanged);
             // 
             // label8
             // 
