@@ -40,22 +40,11 @@ namespace BirdShopManagement
             string username = textUserName.Text.Trim();
             string password = textPassword.Text.Trim();
 
-            if (username == "" || password == "")
-            {
-                MessageBox.Show("Please enter username and password.");
-                return;
-            }
-
             string selectedRole = comboBox1.SelectedItem?.ToString();
 
-            if (string.IsNullOrEmpty(selectedRole))
-            {
-                MessageBox.Show("Please select a role.");
-                return;
-            }
 
             string connStr = @"Data Source=localhost\SQLEXPRESS;
-                               Initial Catalog=birdshopdb;
+                               Initial Catalog=birdshopmanagement;
                                Integrated Security=True;
                                Encrypt=True;
                                TrustServerCertificate=True";
@@ -118,10 +107,7 @@ namespace BirdShopManagement
                             MessageBox.Show("Invalid Customer credentials.");
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("Invalid role selected.");
-                    }
+                    
                 }
             }
             catch (Exception ex)
@@ -144,8 +130,16 @@ namespace BirdShopManagement
 
         private void check_bx_ShowPass_CheckedChanged(object sender, EventArgs e)
         {
-            // Toggle password visibility
-            textPassword.UseSystemPasswordChar = !check_bx_ShowPass.Checked;
+            
+            if (check_bx_ShowPass.Checked)
+            {
+                textPassword.UseSystemPasswordChar = true;
+            }
+            
+            else
+            {
+                textPassword.UseSystemPasswordChar = false;
+            }
         }
     }
 }
