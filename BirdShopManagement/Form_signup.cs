@@ -88,9 +88,7 @@ namespace BirdShopManagement
                 MessageBox.Show("Signup successful! Please login.");
 
 
-                Form_signin signin = new Form_signin();
-                signin.Show();
-                this.Hide();
+               
             }
             catch (Exception ex)
             {
