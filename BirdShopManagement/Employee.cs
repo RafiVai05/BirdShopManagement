@@ -7,13 +7,10 @@ namespace BirdShopManagement
 {
     public partial class Employee : Form
     {
-        SqlConnection con = new SqlConnection(
-            @"Data Source=localhost\SQLEXPRESS;
-              Initial Catalog=birdshopmanagement;
-              Integrated Security=True;
-              Encrypt=True;
-              TrustServerCertificate=True");
+        // Centralized Connection String
+        SqlConnection con = new SqlConnection(@"Data Source=localhost\SQLEXPRESS; Initial Catalog=birdshopdb; Integrated Security=True; Encrypt=True; TrustServerCertificate=True");
 
+        // Variable to store the selected Employee ID for Update/Delete
         int empId = 0;
 
         public Employee()
@@ -23,102 +20,144 @@ namespace BirdShopManagement
 
         private void Employee_Load(object sender, EventArgs e)
         {
+            // Initial data load when the form opens
             LoadEmployeeData();
         }
 
-        void LoadEmployeeData()
+        // Changed to 'public' so it can be called from the Admin form buttons
+        public void LoadEmployeeData()
         {
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Employees", con);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
+            try
+            {
+                // Ensure connection is closed before starting a new operation
+                if (con.State == ConnectionState.Open) con.Close();
+
+                SqlDataAdapter da = new SqlDataAdapter("SELECT Id, Username, Password FROM Employees", con);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                // Binding the data to the DataGridView
+                dataGridView1.DataSource = dt;
+
+                // Optional UI: Adjust column headers
+                if (dataGridView1.Columns["Id"] != null) dataGridView1.Columns["Id"].HeaderText = "ID";
+                if (dataGridView1.Columns["Username"] != null) dataGridView1.Columns["Username"].HeaderText = "User Name";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading data: " + ex.Message);
+            }
         }
 
         private void add_btn_Click(object sender, EventArgs e)
         {
-            if (txtUsername.Text == "" || txtPassword.Text == "")
+            if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
             {
-                MessageBox.Show("Fill all fields");
+                MessageBox.Show("Please fill all fields.");
                 return;
             }
 
-            SqlCommand cmd = new SqlCommand(
-                "INSERT INTO Employees (Username, Password) VALUES (@u, @p)", con);
+            try
+            {
+                SqlCommand cmd = new SqlCommand("INSERT INTO Employees (Username, Password) VALUES (@u, @p)", con);
+                cmd.Parameters.AddWithValue("@u", txtUsername.Text.Trim());
+                cmd.Parameters.AddWithValue("@p", txtPassword.Text.Trim());
 
-            cmd.Parameters.AddWithValue("@u", txtUsername.Text);
-            cmd.Parameters.AddWithValue("@p", txtPassword.Text);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
 
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
-
-            MessageBox.Show("Employee Added");
-            LoadEmployeeData();
-            clear();
+                MessageBox.Show("Employee Added Successfully!");
+                LoadEmployeeData(); // Refresh grid
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                con.Close();
+                MessageBox.Show("Error adding employee: " + ex.Message);
+            }
         }
 
         private void update_btn_Click(object sender, EventArgs e)
         {
             if (empId == 0)
             {
-                MessageBox.Show("Select a record first");
+                MessageBox.Show("Please select an employee from the list first.");
                 return;
             }
 
-            SqlCommand cmd = new SqlCommand(
-                "UPDATE Employees SET Username=@u, Password=@p WHERE Id=@id", con);
+            try
+            {
+                SqlCommand cmd = new SqlCommand("UPDATE Employees SET Username=@u, Password=@p WHERE Id=@id", con);
+                cmd.Parameters.AddWithValue("@u", txtUsername.Text.Trim());
+                cmd.Parameters.AddWithValue("@p", txtPassword.Text.Trim());
+                cmd.Parameters.AddWithValue("@id", empId);
 
-            cmd.Parameters.AddWithValue("@u", txtUsername.Text);
-            cmd.Parameters.AddWithValue("@p", txtPassword.Text);
-            cmd.Parameters.AddWithValue("@id", empId);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
 
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
-
-            MessageBox.Show("Employee Updated");
-            LoadEmployeeData();
-            clear();
+                MessageBox.Show("Employee Details Updated!");
+                LoadEmployeeData(); // Refresh grid
+                ClearFields();
+            }
+            catch (Exception ex)
+            {
+                con.Close();
+                MessageBox.Show("Error updating: " + ex.Message);
+            }
         }
 
         private void delete_btn_Click(object sender, EventArgs e)
         {
             if (empId == 0)
             {
-                MessageBox.Show("Select a record first");
+                MessageBox.Show("Please select an employee to delete.");
                 return;
             }
 
-            SqlCommand cmd = new SqlCommand(
-                "DELETE FROM Employees WHERE Id=@id", con);
-
-            cmd.Parameters.AddWithValue("@id", empId);
-
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
-
-            MessageBox.Show("Employee Deleted");
-            LoadEmployeeData();
-            clear();
-        }
-
-        private void click_btn_Click(object sender, EventArgs e)
-        {
-            clear();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
+            var confirm = MessageBox.Show("Are you sure you want to delete this record?", "Confirm Delete", MessageBoxButtons.YesNo);
+            if (confirm == DialogResult.Yes)
             {
-                empId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Id"].Value);
-                txtUsername.Text = dataGridView1.Rows[e.RowIndex].Cells["Username"].Value.ToString();
-                txtPassword.Text = dataGridView1.Rows[e.RowIndex].Cells["Password"].Value.ToString();
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("DELETE FROM Employees WHERE Id=@id", con);
+                    cmd.Parameters.AddWithValue("@id", empId);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+
+                    MessageBox.Show("Employee Deleted.");
+                    LoadEmployeeData(); // Refresh grid
+                    ClearFields();
+                }
+                catch (Exception ex)
+                {
+                    con.Close();
+                    MessageBox.Show("Error deleting: " + ex.Message);
+                }
             }
         }
 
-        void clear()
+        private void clear_btn_Click(object sender, EventArgs e)
+        {
+            ClearFields();
+        }
+
+        // Handles clicking on the grid to populate textboxes
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                empId = Convert.ToInt32(row.Cells["Id"].Value);
+                txtUsername.Text = row.Cells["Username"].Value.ToString();
+                txtPassword.Text = row.Cells["Password"].Value.ToString();
+            }
+        }
+
+        private void ClearFields()
         {
             txtUsername.Clear();
             txtPassword.Clear();
@@ -126,5 +165,3 @@ namespace BirdShopManagement
         }
     }
 }
-
-

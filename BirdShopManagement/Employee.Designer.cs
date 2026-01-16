@@ -58,7 +58,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(223, 426);
+            this.panel1.Size = new System.Drawing.Size(223, 558);
             this.panel1.TabIndex = 0;
             // 
             // txtPassword
@@ -83,7 +83,7 @@
             this.button4.TabIndex = 5;
             this.button4.Text = "Clear";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.click_btn_Click);
+//           this.button4.Click += new System.EventHandler(this.click_btn_Click);
             // 
             // button3
             // 
@@ -140,7 +140,7 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(241, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1227, 603);
+            this.panel2.Size = new System.Drawing.Size(633, 558);
             this.panel2.TabIndex = 1;
             // 
             // dataGridView1
@@ -150,9 +150,9 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1149, 537);
+            this.dataGridView1.Size = new System.Drawing.Size(510, 478);
             this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+//            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label3
             // 

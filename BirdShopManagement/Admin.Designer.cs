@@ -70,7 +70,6 @@
             this.button4.TabIndex = 4;
             this.button4.Text = "Customer";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.customer_btn_Click);
             // 
             // button2
             // 
@@ -104,6 +103,7 @@
             // 
             // rightPanel
             // 
+            this.rightPanel.AutoScroll = true;
             this.rightPanel.Location = new System.Drawing.Point(181, 0);
             this.rightPanel.Name = "rightPanel";
             this.rightPanel.Size = new System.Drawing.Size(1326, 619);

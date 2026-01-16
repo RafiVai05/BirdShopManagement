@@ -57,7 +57,7 @@ namespace BirdShopManagement
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(216, 28);
             this.txtUsername.TabIndex = 2;
-            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
+           this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // txtPass
             // 
@@ -68,7 +68,7 @@ namespace BirdShopManagement
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(216, 29);
             this.txtPass.TabIndex = 3;
-            this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
+           this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
             // 
             // button1
             // 
@@ -95,7 +95,7 @@ namespace BirdShopManagement
             this.button2.TabIndex = 5;
             this.button2.Text = "BACK";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.signup_back_btn_click);
+           this.button2.Click += new System.EventHandler(this.signup_back_btn_click);
             // 
             // txtAdd
             // 
@@ -106,7 +106,7 @@ namespace BirdShopManagement
             this.txtAdd.Name = "txtAdd";
             this.txtAdd.Size = new System.Drawing.Size(216, 81);
             this.txtAdd.TabIndex = 9;
-            this.txtAdd.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+           this.txtAdd.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // txtContact
             // 
@@ -117,7 +117,7 @@ namespace BirdShopManagement
             this.txtContact.Name = "txtContact";
             this.txtContact.Size = new System.Drawing.Size(216, 29);
             this.txtContact.TabIndex = 8;
-            this.txtContact.TextChanged += new System.EventHandler(this.txtContact_TextChanged);
+           this.txtContact.TextChanged += new System.EventHandler(this.txtContact_TextChanged);
             // 
             // label7
             // 
@@ -225,7 +225,7 @@ namespace BirdShopManagement
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_signup";
             this.Text = "Form_signup";
-            this.Load += new System.EventHandler(this.Form_signup_Load);
+           this.Load += new System.EventHandler(this.Form_signup_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
