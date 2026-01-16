@@ -44,7 +44,7 @@ namespace BirdShopManagement
 
 
             string connStr = @"Data Source=localhost\SQLEXPRESS;
-                               Initial Catalog=birdshopmanagement;
+                               Initial Catalog=birdshopdb;
                                Integrated Security=True;
                                Encrypt=True;
                                TrustServerCertificate=True";

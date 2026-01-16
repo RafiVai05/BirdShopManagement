@@ -9,7 +9,7 @@ namespace BirdShopManagement
     {
         SqlConnection con = new SqlConnection(
             @"Data Source=localhost\SQLEXPRESS;
-              Initial Catalog=birdshopmanagement;
+              Initial Catalog=birdshopdb;
               Integrated Security=True;
               Encrypt=True;
               TrustServerCertificate=True");

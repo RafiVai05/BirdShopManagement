@@ -38,7 +38,7 @@ namespace BirdShopManagement
 
             string connStr =
                 @"Data Source=localhost\SQLEXPRESS;
-                  Initial Catalog=birdshopmanagement;
+                  Initial Catalog=birdshopdb;
                   Integrated Security=True;
                   Encrypt=True;
                   TrustServerCertificate=True";
@@ -88,9 +88,7 @@ namespace BirdShopManagement
                 MessageBox.Show("Signup successful! Please login.");
 
 
-                Form_signin signin = new Form_signin();
-                signin.Show();
-                this.Hide();
+               
             }
             catch (Exception ex)
             {
