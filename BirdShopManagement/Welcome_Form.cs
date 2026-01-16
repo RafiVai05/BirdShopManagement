@@ -57,7 +57,7 @@ namespace BirdShopManagement
 
             if (string.IsNullOrEmpty(selectedRole))
             {
-                MessageBox.Show("Please select a role first.");
+                
                 return;
             }
 
@@ -70,7 +70,7 @@ namespace BirdShopManagement
                     if (selectedRole == "ADMIN")
                     {
                         // Admin: Hard-coded security
-                        if (username == "admin" && password == "admin123")
+                        if (username == "admin" && password == "admin")
                         {
                             NavigateToAdminDashboard();
                         }
@@ -81,18 +81,18 @@ namespace BirdShopManagement
                     }
                     else if (selectedRole == "EMPLOYEE")
                     {
-                        // Employee: Database Check
                         string query = "SELECT COUNT(*) FROM Employees WHERE Username=@u AND Password=@p";
                         if (ExecuteLoginQuery(query, username, password, con))
                         {
                             MessageBox.Show("Employee login successful!");
-                            NavigateToAdminDashboard(); // Based on your previous logic, Employees use Admin form
+                            NavigateToEmployeeDashboard(); // FIXED: Changed from NavigateToAdminDashboard
                         }
                         else
                         {
                             MessageBox.Show("Invalid Employee credentials.");
                         }
                     }
+
                     else if (selectedRole == "CUSTOMER")
                     {
                         // Customer: Database Check (using your table name 'signUpTab')
@@ -142,13 +142,26 @@ namespace BirdShopManagement
 
         private void check_bx_ShowPass_CheckedChanged(object sender, EventArgs e)
         {
-            // Toggle between showing password characters and dots
-            textPassword.UseSystemPasswordChar = !check_bx_ShowPass.Checked;
+            if (check_bx_ShowPass.Checked)
+            {
+                textPassword.UseSystemPasswordChar = true;
+            }
+            // If unchecked, use the system password character (show stars/dots)
+            else
+            {
+                textPassword.UseSystemPasswordChar = false;
+            }
         }
 
         private void exit_btn_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+        private void NavigateToEmployeeDashboard()
+        {
+            Employee_Form empForm = new Employee_Form();
+            empForm.Show();
+            this.Hide();
         }
     }
 }

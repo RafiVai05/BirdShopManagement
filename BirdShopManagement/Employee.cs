@@ -145,15 +145,20 @@ namespace BirdShopManagement
             ClearFields();
         }
 
-        // Handles clicking on the grid to populate textboxes
+        
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                empId = Convert.ToInt32(row.Cells["Id"].Value);
-                txtUsername.Text = row.Cells["Username"].Value.ToString();
-                txtPassword.Text = row.Cells["Password"].Value.ToString();
+
+                
+                empId = Convert.ToInt32(row.Cells[0].Value);
+
+                txtUsername.Text = row.Cells[1].Value.ToString();
+                txtPassword.Text = row.Cells[2].Value.ToString();
+
+                
             }
         }
 

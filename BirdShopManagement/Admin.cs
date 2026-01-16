@@ -26,14 +26,13 @@ namespace BirdShopManagement
         private void employee_btn_Click(object sender, EventArgs e)
         {
             rightPanel.Controls.Clear();
-
             Employee emp = new Employee();
             emp.TopLevel = false;
-            emp.FormBorderStyle = FormBorderStyle.None;
             emp.Dock = DockStyle.Fill;
-
             rightPanel.Controls.Add(emp);
+
             emp.Show();
+            // This calls the method we made 'public' in the Employee class
             emp.LoadEmployeeData();
         }
 

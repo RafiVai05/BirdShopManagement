@@ -167,6 +167,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accessories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accessories.Designer.cs">
+      <DependentUpon>Accessories.cs</DependentUpon>
+    </Compile>
     <Compile Include="Employee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,17 +185,23 @@
     <Compile Include="Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Employee_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee_Form.Designer.cs">
+      <DependentUpon>Employee_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_signup.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_signup.Designer.cs">
       <DependentUpon>Form_signup.cs</DependentUpon>
     </Compile>
-    <Compile Include="Product_Form.cs">
+    <Compile Include="Birds.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Product_Form.Designer.cs">
-      <DependentUpon>Product_Form.cs</DependentUpon>
+    <Compile Include="Birds.Designer.cs">
+      <DependentUpon>Birds.cs</DependentUpon>
     </Compile>
     <Compile Include="textform.cs">
       <SubType>Form</SubType>
@@ -205,17 +217,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Accessories.resx">
+      <DependentUpon>Accessories.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Employee.resx">
       <DependentUpon>Employee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Employee_Form.resx">
+      <DependentUpon>Employee_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_signup.resx">
       <DependentUpon>Form_signup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Product_Form.resx">
-      <DependentUpon>Product_Form.cs</DependentUpon>
+    <EmbeddedResource Include="Birds.resx">
+      <DependentUpon>Birds.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Welcome_Form.resx">
       <DependentUpon>Welcome_Form.cs</DependentUpon>
