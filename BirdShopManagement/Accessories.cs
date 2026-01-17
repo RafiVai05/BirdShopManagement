@@ -14,7 +14,7 @@ namespace BirdShopManagement
 
         private void Accesories_Load(object sender, EventArgs e) { LoadData(); }
 
-        private void LoadData()
+        public void LoadData()
         {
             SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM acsTab", con);
             DataTable dt = new DataTable();
@@ -73,11 +73,40 @@ namespace BirdShopManagement
 
         private void delete_btn_Click(object sender, EventArgs e)
         {
-            if (acsId == 0) return;
-            SqlCommand cmd = new SqlCommand("DELETE FROM acsTab WHERE A_ID=@id", con);
-            cmd.Parameters.AddWithValue("@id", acsId);
-            con.Open(); cmd.ExecuteNonQuery(); con.Close();
-            LoadData();
+            if (acsId == 0)
+            {
+                MessageBox.Show("Select an item from the list first!");
+                return;
+            }
+
+            DialogResult res = MessageBox.Show("Delete this accessory?", "Confirm", MessageBoxButtons.YesNo);
+            if (res == DialogResult.Yes)
+            {
+                try
+                {
+                    using (SqlConnection conLocal = new SqlConnection(con.ConnectionString))
+                    {
+                        string query = "DELETE FROM acsTab WHERE A_ID=@id";
+                        SqlCommand cmd = new SqlCommand(query, conLocal);
+                        cmd.Parameters.AddWithValue("@id", acsId);
+
+                        conLocal.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        conLocal.Close();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Accessory Deleted!");
+                            acsId = 0;
+                            txtName.Clear();
+                            txtPrice.Clear();
+                            txtQty.Clear();
+                            LoadData();
+                        }
+                    }
+                }
+                catch (Exception ex) { MessageBox.Show("Database Error: " + ex.Message); }
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -85,10 +114,15 @@ namespace BirdShopManagement
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                acsId = Convert.ToInt32(row.Cells[0].Value);
-                txtName.Text = row.Cells[1].Value.ToString();
-                txtPrice.Text = row.Cells[2].Value.ToString();
-                txtQty.Text = row.Cells[3].Value.ToString();
+
+                // Use column index 0 for A_ID
+                if (row.Cells[0].Value != null && row.Cells[0].Value != DBNull.Value)
+                {
+                    acsId = Convert.ToInt32(row.Cells[0].Value);
+                    txtName.Text = row.Cells[1].Value?.ToString();
+                    txtPrice.Text = row.Cells[2].Value?.ToString();
+                    txtQty.Text = row.Cells[3].Value?.ToString();
+                }
             }
         }
     }

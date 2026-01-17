@@ -21,7 +21,7 @@ namespace BirdShopManagement
             LoadData();
         }
 
-        private void LoadData()
+        public void LoadData()
         {
             SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM birdsTab", con);
             DataTable dt = new DataTable();
@@ -80,24 +80,62 @@ namespace BirdShopManagement
 
         private void delete_btn_Click(object sender, EventArgs e)
         {
-            if (birdId == 0) return;
-            SqlCommand cmd = new SqlCommand("DELETE FROM birdsTab WHERE P_ID=@id", con);
-            cmd.Parameters.AddWithValue("@id", birdId);
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
-            LoadData();
+            // 1. Validate selection
+            if (birdId == 0)
+            {
+                MessageBox.Show("Select a bird from the list first!");
+                return;
+            }
+
+            // 2. Confirm deletion
+            DialogResult res = MessageBox.Show("Are you sure you want to delete this bird?", "Confirm", MessageBoxButtons.YesNo);
+            if (res == DialogResult.Yes)
+            {
+                try
+                {
+                    // Use the connection string from your global 'con' object
+                    using (SqlConnection conLocal = new SqlConnection(con.ConnectionString))
+                    {
+                        string query = "DELETE FROM birdsTab WHERE P_ID=@id";
+                        SqlCommand cmd = new SqlCommand(query, conLocal);
+                        cmd.Parameters.AddWithValue("@id", birdId);
+
+                        conLocal.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery(); // Check if deletion actually happened
+                        conLocal.Close();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Bird Deleted Successfully!");
+
+                            // 3. Reset UI and refresh
+                            birdId = 0;
+                            txtName.Clear();
+                            txtPrice.Clear();
+                            txtQty.Clear();
+                            LoadData();
+                        }
+                    }
+                }
+                catch (Exception ex) { MessageBox.Show("Database Error: " + ex.Message); }
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Ensure the user clicked a valid row, not the header
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                birdId = Convert.ToInt32(row.Cells[0].Value);
-                txtName.Text = row.Cells[1].Value.ToString();
-                txtPrice.Text = row.Cells[2].Value.ToString();
-                txtQty.Text = row.Cells[3].Value.ToString();
+
+                // Use column index 0 for P_ID to be safe
+                if (row.Cells[0].Value != null && row.Cells[0].Value != DBNull.Value)
+                {
+                    birdId = Convert.ToInt32(row.Cells[0].Value);
+                    txtName.Text = row.Cells[1].Value?.ToString();
+                    txtPrice.Text = row.Cells[2].Value?.ToString();
+                    txtQty.Text = row.Cells[3].Value?.ToString();
+                }
             }
         }
     }

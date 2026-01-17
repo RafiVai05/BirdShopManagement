@@ -20,27 +20,27 @@ namespace BirdShopManagement
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             rightPanel.Controls.Clear();
-            Form f = null;
-
-            // Make sure items "Birds" and "Accessories" are added to the ComboBox items collection
             string selected = comboBox1.SelectedItem.ToString();
 
             if (selected == "Birds")
             {
-                f = new Birds();
-            }
-            else if (selected == "Accessories")
-            {
-                f = new Accessories();
-            }
-
-            if (f != null)
-            {
+                Birds f = new Birds(); // Create instance
                 f.TopLevel = false;
-                f.FormBorderStyle = FormBorderStyle.None; // Recommended for panels
+                
                 f.Dock = DockStyle.Fill;
                 rightPanel.Controls.Add(f);
                 f.Show();
+                f.LoadData(); // FORCED RELOAD: Ensures data shows immediately
+            }
+            else if (selected == "Accessories")
+            {
+                Accessories f = new Accessories(); // Create instance
+                f.TopLevel = false;
+                
+                f.Dock = DockStyle.Fill;
+                rightPanel.Controls.Add(f);
+                f.Show();
+                f.LoadData(); // FORCED RELOAD: Ensures data shows immediately
             }
         }
 

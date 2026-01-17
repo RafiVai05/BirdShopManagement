@@ -173,6 +173,12 @@
     <Compile Include="Accessories.Designer.cs">
       <DependentUpon>Accessories.cs</DependentUpon>
     </Compile>
+    <Compile Include="Customer_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer_form.Designer.cs">
+      <DependentUpon>Customer_form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Employee.cs">
       <SubType>Form</SubType>
     </Compile>
