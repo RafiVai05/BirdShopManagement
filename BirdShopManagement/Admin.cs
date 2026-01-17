@@ -38,7 +38,9 @@ namespace BirdShopManagement
 
         private void logout_btn_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Welcome_Form welcome = new Welcome_Form();
+            welcome.Show();
+            this.Close();
         }
     }
 }

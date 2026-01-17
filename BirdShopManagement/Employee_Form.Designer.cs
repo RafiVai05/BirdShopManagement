@@ -39,9 +39,9 @@
             // rightPanel
             // 
             this.rightPanel.AutoScroll = true;
-            this.rightPanel.Location = new System.Drawing.Point(190, 5);
+            this.rightPanel.Location = new System.Drawing.Point(203, 5);
             this.rightPanel.Name = "rightPanel";
-            this.rightPanel.Size = new System.Drawing.Size(985, 619);
+            this.rightPanel.Size = new System.Drawing.Size(986, 619);
             this.rightPanel.TabIndex = 6;
             // 
             // panel1
@@ -53,7 +53,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(184, 624);
+            this.panel1.Size = new System.Drawing.Size(198, 624);
             this.panel1.TabIndex = 5;
             // 
             // comboBox1

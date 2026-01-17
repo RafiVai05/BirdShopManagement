@@ -100,7 +100,8 @@ namespace BirdShopManagement
                         if (ExecuteLoginQuery(query, username, password, con))
                         {
                             MessageBox.Show("Customer login successful!");
-                            // TODO: Open Customer Dashboard here
+                            // FIXED: Now calls the navigation method to open the portal
+                            NavigateToCustomerDashboard();
                         }
                         else
                         {
@@ -161,6 +162,13 @@ namespace BirdShopManagement
         {
             Employee_Form empForm = new Employee_Form();
             empForm.Show();
+            this.Hide();
+        }
+        private void NavigateToCustomerDashboard()
+        {
+            
+            Customer_form customerPortal = new Customer_form();
+            customerPortal.Show();
             this.Hide();
         }
     }
