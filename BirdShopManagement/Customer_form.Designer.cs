@@ -29,49 +29,49 @@
         private void InitializeComponent()
         {
             this.leftTopPanel = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.upperFrontPanel = new System.Windows.Forms.Panel();
+            this.dgvInventory = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbProductType = new System.Windows.Forms.ComboBox();
             this.logout_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.rightPanel = new System.Windows.Forms.Panel();
-            this.leftBottomPanel = new System.Windows.Forms.Panel();
-            this.cmbProductType = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.upperFrontPanel = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dgvInventory = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtProductName = new System.Windows.Forms.MaskedTextBox();
-            this.txtPrice = new System.Windows.Forms.MaskedTextBox();
-            this.numQuantity = new System.Windows.Forms.NumericUpDown();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnRemove = new System.Windows.Forms.Button();
-            this.btnClearAll = new System.Windows.Forms.Button();
-            this.lblStockCount = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cmbProductID = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dgvCart = new System.Windows.Forms.DataGridView();
+            this.btnPay = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.btnPay = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.leftBottomPanel = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbProductID = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblStockCount = new System.Windows.Forms.Label();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.btnClearAll = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.numQuantity = new System.Windows.Forms.NumericUpDown();
+            this.txtPrice = new System.Windows.Forms.MaskedTextBox();
+            this.txtProductName = new System.Windows.Forms.MaskedTextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dgvCart = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.P_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colInventoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bird_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.leftTopPanel.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.upperFrontPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
             this.panel1.SuspendLayout();
             this.rightPanel.SuspendLayout();
             this.leftBottomPanel.SuspendLayout();
-            this.upperFrontPanel.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             this.SuspendLayout();
@@ -86,6 +86,52 @@
             this.leftTopPanel.Size = new System.Drawing.Size(825, 382);
             this.leftTopPanel.TabIndex = 8;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Location = new System.Drawing.Point(0, -125);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(825, 175);
+            this.panel3.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(32, 140);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(97, 25);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Products";
+            // 
+            // upperFrontPanel
+            // 
+            this.upperFrontPanel.AutoScroll = true;
+            this.upperFrontPanel.Controls.Add(this.dgvInventory);
+            this.upperFrontPanel.Location = new System.Drawing.Point(3, 56);
+            this.upperFrontPanel.Name = "upperFrontPanel";
+            this.upperFrontPanel.Size = new System.Drawing.Size(819, 310);
+            this.upperFrontPanel.TabIndex = 10;
+            // 
+            // dgvInventory
+            // 
+            this.dgvInventory.AllowUserToDeleteRows = false;
+            this.dgvInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInventory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.P_ID,
+            this.Bird_Name,
+            this.Price,
+            this.Quantity});
+            this.dgvInventory.Location = new System.Drawing.Point(3, 3);
+            this.dgvInventory.Name = "dgvInventory";
+            this.dgvInventory.ReadOnly = true;
+            this.dgvInventory.RowHeadersWidth = 51;
+            this.dgvInventory.RowTemplate.Height = 24;
+            this.dgvInventory.Size = new System.Drawing.Size(642, 150);
+            this.dgvInventory.TabIndex = 0;
+            this.dgvInventory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventory_CellClick);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.MediumAquamarine;
@@ -98,6 +144,28 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(184, 590);
             this.panel1.TabIndex = 7;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(12, 189);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(129, 16);
+            this.label8.TabIndex = 59;
+            this.label8.Text = "Select Product Type";
+            // 
+            // cmbProductType
+            // 
+            this.cmbProductType.FormattingEnabled = true;
+            this.cmbProductType.Items.AddRange(new object[] {
+            "Birds",
+            "Accessories"});
+            this.cmbProductType.Location = new System.Drawing.Point(12, 208);
+            this.cmbProductType.Name = "cmbProductType";
+            this.cmbProductType.Size = new System.Drawing.Size(162, 24);
+            this.cmbProductType.TabIndex = 0;
+            this.cmbProductType.SelectedIndexChanged += new System.EventHandler(this.cmbProductType_SelectedIndexChanged);
             // 
             // logout_btn
             // 
@@ -122,14 +190,41 @@
             // rightPanel
             // 
             this.rightPanel.AutoScroll = true;
+            this.rightPanel.Controls.Add(this.dgvCart);
             this.rightPanel.Controls.Add(this.btnPay);
             this.rightPanel.Controls.Add(this.lblTotal);
             this.rightPanel.Controls.Add(this.label9);
-            this.rightPanel.Controls.Add(this.dgvCart);
             this.rightPanel.Location = new System.Drawing.Point(1048, 7);
             this.rightPanel.Name = "rightPanel";
             this.rightPanel.Size = new System.Drawing.Size(701, 583);
             this.rightPanel.TabIndex = 9;
+            // 
+            // btnPay
+            // 
+            this.btnPay.Location = new System.Drawing.Point(259, 348);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(207, 34);
+            this.btnPay.TabIndex = 67;
+            this.btnPay.Text = "PAY";
+            this.btnPay.UseVisualStyleBackColor = true;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.Location = new System.Drawing.Point(346, 280);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.ReadOnly = true;
+            this.lblTotal.Size = new System.Drawing.Size(120, 22);
+            this.lblTotal.TabIndex = 65;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(235, 283);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(97, 16);
+            this.label9.TabIndex = 64;
+            this.label9.Text = "TOTAL PRICE:";
             // 
             // leftBottomPanel
             // 
@@ -152,136 +247,43 @@
             this.leftBottomPanel.Size = new System.Drawing.Size(825, 162);
             this.leftBottomPanel.TabIndex = 9;
             // 
-            // cmbProductType
+            // label7
             // 
-            this.cmbProductType.FormattingEnabled = true;
-            this.cmbProductType.Items.AddRange(new object[] {
-            "Birds",
-            "Accessories"});
-            this.cmbProductType.Location = new System.Drawing.Point(12, 208);
-            this.cmbProductType.Name = "cmbProductType";
-            this.cmbProductType.Size = new System.Drawing.Size(162, 24);
-            this.cmbProductType.TabIndex = 0;
-            this.cmbProductType.SelectedIndexChanged += new System.EventHandler(this.cmbProductType_SelectedIndexChanged);
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(392, 12);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(110, 16);
+            this.label7.TabIndex = 60;
+            this.label7.Text = "Select Product ID";
             // 
-            // label8
+            // cmbProductID
             // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(12, 189);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(129, 16);
-            this.label8.TabIndex = 59;
-            this.label8.Text = "Select Product Type";
+            this.cmbProductID.FormattingEnabled = true;
+            this.cmbProductID.Location = new System.Drawing.Point(486, 31);
+            this.cmbProductID.Name = "cmbProductID";
+            this.cmbProductID.Size = new System.Drawing.Size(121, 24);
+            this.cmbProductID.TabIndex = 71;
+            this.cmbProductID.SelectedIndexChanged += new System.EventHandler(this.cmbProductID_SelectedIndexChanged);
             // 
-            // upperFrontPanel
+            // label6
             // 
-            this.upperFrontPanel.AutoScroll = true;
-            this.upperFrontPanel.Controls.Add(this.dgvInventory);
-            this.upperFrontPanel.Location = new System.Drawing.Point(3, 56);
-            this.upperFrontPanel.Name = "upperFrontPanel";
-            this.upperFrontPanel.Size = new System.Drawing.Size(819, 310);
-            this.upperFrontPanel.TabIndex = 10;
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(392, 37);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 16);
+            this.label6.TabIndex = 70;
+            this.label6.Text = "Product ID:";
             // 
-            // panel3
+            // lblStockCount
             // 
-            this.panel3.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(0, -125);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(825, 175);
-            this.panel3.TabIndex = 11;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(32, 140);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 25);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Products";
-            // 
-            // dgvInventory
-            // 
-            this.dgvInventory.AllowUserToDeleteRows = false;
-            this.dgvInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInventory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.P_ID,
-            this.colInventoryName,
-            this.Price,
-            this.Stock});
-            this.dgvInventory.Location = new System.Drawing.Point(3, 3);
-            this.dgvInventory.Name = "dgvInventory";
-            this.dgvInventory.ReadOnly = true;
-            this.dgvInventory.RowHeadersWidth = 51;
-            this.dgvInventory.RowTemplate.Height = 24;
-            this.dgvInventory.Size = new System.Drawing.Size(642, 150);
-            this.dgvInventory.TabIndex = 0;
-            this.dgvInventory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventory_CellClick);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(25, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 16);
-            this.label3.TabIndex = 60;
-            this.label3.Text = "Product Quantity";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(25, 87);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 16);
-            this.label4.TabIndex = 61;
-            this.label4.Text = "Price:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(25, 57);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 16);
-            this.label5.TabIndex = 62;
-            this.label5.Text = "Product Name:";
-            // 
-            // txtProductName
-            // 
-            this.txtProductName.Location = new System.Drawing.Point(136, 54);
-            this.txtProductName.Name = "txtProductName";
-            this.txtProductName.ReadOnly = true;
-            this.txtProductName.Size = new System.Drawing.Size(120, 22);
-            this.txtProductName.TabIndex = 63;
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.Location = new System.Drawing.Point(136, 87);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.ReadOnly = true;
-            this.txtPrice.Size = new System.Drawing.Size(120, 22);
-            this.txtPrice.TabIndex = 64;
-            // 
-            // numQuantity
-            // 
-            this.numQuantity.Location = new System.Drawing.Point(136, 16);
-            this.numQuantity.Name = "numQuantity";
-            this.numQuantity.Size = new System.Drawing.Size(120, 22);
-            this.numQuantity.TabIndex = 65;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(62, 115);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(207, 34);
-            this.btnAdd.TabIndex = 66;
-            this.btnAdd.Text = "ADD";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.lblStockCount.AutoSize = true;
+            this.lblStockCount.Location = new System.Drawing.Point(273, 22);
+            this.lblStockCount.Name = "lblStockCount";
+            this.lblStockCount.Size = new System.Drawing.Size(54, 16);
+            this.lblStockCount.TabIndex = 69;
+            this.lblStockCount.Text = "Stock: 0";
             // 
             // btnRemove
             // 
@@ -303,151 +305,155 @@
             this.btnClearAll.UseVisualStyleBackColor = true;
             this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
             // 
-            // lblStockCount
+            // btnAdd
             // 
-            this.lblStockCount.AutoSize = true;
-            this.lblStockCount.Location = new System.Drawing.Point(273, 22);
-            this.lblStockCount.Name = "lblStockCount";
-            this.lblStockCount.Size = new System.Drawing.Size(54, 16);
-            this.lblStockCount.TabIndex = 69;
-            this.lblStockCount.Text = "Stock: 0";
+            this.btnAdd.Location = new System.Drawing.Point(62, 115);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(207, 34);
+            this.btnAdd.TabIndex = 66;
+            this.btnAdd.Text = "ADD";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // label6
+            // numQuantity
             // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(392, 37);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 16);
-            this.label6.TabIndex = 70;
-            this.label6.Text = "Product ID:";
+            this.numQuantity.Location = new System.Drawing.Point(136, 16);
+            this.numQuantity.Name = "numQuantity";
+            this.numQuantity.Size = new System.Drawing.Size(120, 22);
+            this.numQuantity.TabIndex = 65;
             // 
-            // cmbProductID
+            // txtPrice
             // 
-            this.cmbProductID.FormattingEnabled = true;
-            this.cmbProductID.Location = new System.Drawing.Point(486, 31);
-            this.cmbProductID.Name = "cmbProductID";
-            this.cmbProductID.Size = new System.Drawing.Size(121, 24);
-            this.cmbProductID.TabIndex = 71;
-            this.cmbProductID.SelectedIndexChanged += new System.EventHandler(this.cmbProductID_SelectedIndexChanged);
+            this.txtPrice.Location = new System.Drawing.Point(136, 87);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.ReadOnly = true;
+            this.txtPrice.Size = new System.Drawing.Size(120, 22);
+            this.txtPrice.TabIndex = 64;
             // 
-            // label7
+            // txtProductName
             // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(392, 12);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(110, 16);
-            this.label7.TabIndex = 60;
-            this.label7.Text = "Select Product ID";
+            this.txtProductName.Location = new System.Drawing.Point(136, 54);
+            this.txtProductName.Name = "txtProductName";
+            this.txtProductName.ReadOnly = true;
+            this.txtProductName.Size = new System.Drawing.Size(120, 22);
+            this.txtProductName.TabIndex = 63;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(25, 57);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(96, 16);
+            this.label5.TabIndex = 62;
+            this.label5.Text = "Product Name:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(25, 87);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 16);
+            this.label4.TabIndex = 61;
+            this.label4.Text = "Price:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(25, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(104, 16);
+            this.label3.TabIndex = 60;
+            this.label3.Text = "Product Quantity";
             // 
             // dgvCart
             // 
             this.dgvCart.AllowUserToDeleteRows = false;
             this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.Quantity,
-            this.dataGridViewTextBoxColumn3});
-            this.dgvCart.Location = new System.Drawing.Point(17, 15);
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7});
+            this.dgvCart.Location = new System.Drawing.Point(16, 15);
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.ReadOnly = true;
             this.dgvCart.RowHeadersWidth = 51;
             this.dgvCart.RowTemplate.Height = 24;
-            this.dgvCart.Size = new System.Drawing.Size(642, 194);
-            this.dgvCart.TabIndex = 1;
+            this.dgvCart.Size = new System.Drawing.Size(642, 150);
+            this.dgvCart.TabIndex = 68;
             // 
-            // lblTotal
+            // dataGridViewTextBoxColumn4
             // 
-            this.lblTotal.Location = new System.Drawing.Point(346, 280);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.ReadOnly = true;
-            this.lblTotal.Size = new System.Drawing.Size(120, 22);
-            this.lblTotal.TabIndex = 65;
+            this.dataGridViewTextBoxColumn4.HeaderText = "P_ID";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 125;
             // 
-            // label9
+            // dataGridViewTextBoxColumn5
             // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(235, 283);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(97, 16);
-            this.label9.TabIndex = 64;
-            this.label9.Text = "TOTAL PRICE:";
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Bird_Name";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Bird_Name";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 125;
             // 
-            // btnPay
+            // dataGridViewTextBoxColumn6
             // 
-            this.btnPay.Location = new System.Drawing.Point(259, 348);
-            this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(207, 34);
-            this.btnPay.TabIndex = 67;
-            this.btnPay.Text = "PAY";
-            this.btnPay.UseVisualStyleBackColor = true;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Price";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 125;
             // 
-            // dataGridViewTextBoxColumn1
+            // dataGridViewTextBoxColumn7
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "P_ID";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "colCartName";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 125;
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.MinimumWidth = 6;
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            this.Quantity.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Price";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 125;
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Quantity";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Quantity";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 125;
             // 
             // P_ID
             // 
+            this.P_ID.DataPropertyName = "P_ID";
             this.P_ID.HeaderText = "P_ID";
             this.P_ID.MinimumWidth = 6;
             this.P_ID.Name = "P_ID";
             this.P_ID.ReadOnly = true;
             this.P_ID.Width = 125;
             // 
-            // colInventoryName
+            // Bird_Name
             // 
-            this.colInventoryName.HeaderText = "colInventoryName";
-            this.colInventoryName.MinimumWidth = 6;
-            this.colInventoryName.Name = "colInventoryName";
-            this.colInventoryName.ReadOnly = true;
-            this.colInventoryName.Width = 125;
+            this.Bird_Name.DataPropertyName = "Bird_Name";
+            this.Bird_Name.HeaderText = "Bird_Name";
+            this.Bird_Name.MinimumWidth = 6;
+            this.Bird_Name.Name = "Bird_Name";
+            this.Bird_Name.ReadOnly = true;
+            this.Bird_Name.Width = 125;
             // 
             // Price
             // 
+            this.Price.DataPropertyName = "Price";
             this.Price.HeaderText = "Price";
             this.Price.MinimumWidth = 6;
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
             this.Price.Width = 125;
             // 
-            // Stock
+            // Quantity
             // 
-            this.Stock.HeaderText = "Stock";
-            this.Stock.MinimumWidth = 6;
-            this.Stock.Name = "Stock";
-            this.Stock.ReadOnly = true;
-            this.Stock.Width = 125;
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.MinimumWidth = 6;
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            this.Quantity.Width = 125;
             // 
             // Customer_form
             // 
@@ -461,16 +467,16 @@
             this.Name = "Customer_form";
             this.Text = "Customer_form";
             this.leftTopPanel.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.upperFrontPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.rightPanel.ResumeLayout(false);
             this.rightPanel.PerformLayout();
             this.leftBottomPanel.ResumeLayout(false);
             this.leftBottomPanel.PerformLayout();
-            this.upperFrontPanel.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
             this.ResumeLayout(false);
@@ -508,13 +514,13 @@
         private System.Windows.Forms.MaskedTextBox lblTotal;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView dgvCart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn P_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colInventoryName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Bird_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
     }
 }

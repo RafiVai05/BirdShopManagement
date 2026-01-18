@@ -41,7 +41,7 @@
             this.rightPanel.AutoScroll = true;
             this.rightPanel.Location = new System.Drawing.Point(203, 5);
             this.rightPanel.Name = "rightPanel";
-            this.rightPanel.Size = new System.Drawing.Size(986, 619);
+            this.rightPanel.Size = new System.Drawing.Size(896, 484);
             this.rightPanel.TabIndex = 6;
             // 
             // panel1
