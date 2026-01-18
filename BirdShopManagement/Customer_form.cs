@@ -51,12 +51,13 @@ namespace BirdShopManagement
         {
             if (e.RowIndex >= 0)
             {
-                // Grabs ID from the first column and selects it in the ComboBox
+                // Grabs ID from the first column (Index 0)
                 string id = dgvInventory.Rows[e.RowIndex].Cells[0].Value?.ToString();
                 cmbProductID.SelectedItem = id;
             }
         }
 
+        // DYNAMIC FILL: Handles naming differences between Birds and Accessories tables
         private void cmbProductID_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbProductID.SelectedItem == null || cmbProductType.SelectedItem == null) return;
@@ -78,12 +79,15 @@ namespace BirdShopManagement
                     txtPrice.Text = row.Cells["Price"].Value?.ToString();
 
                     // Set stock information
-                    int stock = Convert.ToInt32(row.Cells["Quantity"].Value);
-                    lblStockCount.Text = "Stock: " + stock;
+                    if (row.Cells["Quantity"].Value != null && row.Cells["Quantity"].Value != DBNull.Value)
+                    {
+                        int stock = Convert.ToInt32(row.Cells["Quantity"].Value);
+                        lblStockCount.Text = "Stock: " + stock;
 
-                    // Set purchase limits
-                    numQuantity.Maximum = stock;
-                    numQuantity.Value = (stock > 0) ? 1 : 0;
+                        // Set purchase limits
+                        numQuantity.Maximum = stock;
+                        numQuantity.Value = (stock > 0) ? 1 : 0;
+                    }
                     break;
                 }
             }

@@ -83,7 +83,7 @@
             this.leftTopPanel.Controls.Add(this.upperFrontPanel);
             this.leftTopPanel.Location = new System.Drawing.Point(200, 7);
             this.leftTopPanel.Name = "leftTopPanel";
-            this.leftTopPanel.Size = new System.Drawing.Size(825, 382);
+            this.leftTopPanel.Size = new System.Drawing.Size(754, 382);
             this.leftTopPanel.TabIndex = 8;
             // 
             // panel3
@@ -111,7 +111,7 @@
             this.upperFrontPanel.Controls.Add(this.dgvInventory);
             this.upperFrontPanel.Location = new System.Drawing.Point(3, 56);
             this.upperFrontPanel.Name = "upperFrontPanel";
-            this.upperFrontPanel.Size = new System.Drawing.Size(819, 310);
+            this.upperFrontPanel.Size = new System.Drawing.Size(732, 310);
             this.upperFrontPanel.TabIndex = 10;
             // 
             // dgvInventory
@@ -194,9 +194,9 @@
             this.rightPanel.Controls.Add(this.btnPay);
             this.rightPanel.Controls.Add(this.lblTotal);
             this.rightPanel.Controls.Add(this.label9);
-            this.rightPanel.Location = new System.Drawing.Point(1048, 7);
+            this.rightPanel.Location = new System.Drawing.Point(960, 7);
             this.rightPanel.Name = "rightPanel";
-            this.rightPanel.Size = new System.Drawing.Size(701, 583);
+            this.rightPanel.Size = new System.Drawing.Size(789, 583);
             this.rightPanel.TabIndex = 9;
             // 
             // btnPay
@@ -244,7 +244,7 @@
             this.leftBottomPanel.Controls.Add(this.label3);
             this.leftBottomPanel.Location = new System.Drawing.Point(200, 416);
             this.leftBottomPanel.Name = "leftBottomPanel";
-            this.leftBottomPanel.Size = new System.Drawing.Size(825, 162);
+            this.leftBottomPanel.Size = new System.Drawing.Size(754, 162);
             this.leftBottomPanel.TabIndex = 9;
             // 
             // label7
@@ -377,7 +377,7 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7});
-            this.dgvCart.Location = new System.Drawing.Point(16, 15);
+            this.dgvCart.Location = new System.Drawing.Point(17, 15);
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.ReadOnly = true;
             this.dgvCart.RowHeadersWidth = 51;
