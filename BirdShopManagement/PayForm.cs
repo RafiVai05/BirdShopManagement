@@ -33,7 +33,7 @@ namespace BirdShopManagement
             LoadUserData();
         }
 
-        // FIX: Restoring the missing LoadUserData method
+        
         private void LoadUserData()
         {
             try
@@ -61,7 +61,7 @@ namespace BirdShopManagement
             catch (Exception ex) { MessageBox.Show("Error loading user data: " + ex.Message); }
         }
 
-        // FIX: Renamed method to match the new event name from Step 1
+        
         private void btnPayReceipt_Click(object sender, EventArgs e)
         {
             if (cartItems == null || cartItems.Rows.Count == 0)
@@ -127,9 +127,9 @@ namespace BirdShopManagement
         {
             Graphics g = e.Graphics;
             Font fontTitle = new Font("Arial", 14, FontStyle.Bold);
-            Font fontHeader = new Font("Arial", 10, FontStyle.Bold); // Created for bold headers
+            Font fontHeader = new Font("Arial", 10, FontStyle.Bold); 
             Font fontBody = new Font("Arial", 10, FontStyle.Regular);
-            Font fontItalic = new Font("Arial", 10, FontStyle.Italic); // FIX: FontStyle.Italic used here
+            Font fontItalic = new Font("Arial", 10, FontStyle.Italic); 
             
             float y = 20;
             g.DrawString("BIRD SHOP RECEIPT", fontTitle, Brushes.Black, 60, y);
@@ -139,7 +139,7 @@ namespace BirdShopManagement
             g.DrawString("Address: " + txtaddress.Text, fontBody, Brushes.Black, 10, y);
             y += 40;
 
-            // FIX: Use fontHeader (bold) and Brushes.Black (brush)
+            
             g.DrawString("Items purchased:", fontHeader, Brushes.Black, 10, y);
             y += 25;
 
@@ -157,7 +157,7 @@ namespace BirdShopManagement
             g.DrawString("Thank you for your purchase!", fontItalic, Brushes.Black, 10, y);
         }
 
-        // FIX: Restoring the missing update_btn_Click method
+        
         private void update_btn_Click(object sender, EventArgs e)
         {
             try

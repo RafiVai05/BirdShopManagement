@@ -29,14 +29,14 @@ namespace BirdShopManagement
             dataGridView1.DataSource = dt;
         }
 
-        // BIRDS ADD LOGIC
+        
         private void add_btn_Click(object sender, EventArgs e)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(@"Data Source=localhost\SQLEXPRESS; Initial Catalog=birdshopdb; Integrated Security=True; Encrypt=True; TrustServerCertificate=True"))
                 {
-                    // Do NOT include P_ID in the columns list
+                    
                     string query = "INSERT INTO birdsTab (Bird_Name, Price, Quantity) VALUES (@name, @price, @qty)";
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.AddWithValue("@name", txtName.Text.Trim());
@@ -53,7 +53,7 @@ namespace BirdShopManagement
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
 
-        // BIRDS UPDATE LOGIC
+        
         private void update_btn_Click(object sender, EventArgs e)
         {
             if (birdId == 0) { MessageBox.Show("Select a bird from the list first!"); return; }
@@ -66,7 +66,7 @@ namespace BirdShopManagement
                     cmd.Parameters.AddWithValue("@name", txtName.Text.Trim());
                     cmd.Parameters.AddWithValue("@price", float.Parse(txtPrice.Text.Trim()));
                     cmd.Parameters.AddWithValue("@qty", int.Parse(txtQty.Text.Trim()));
-                    cmd.Parameters.AddWithValue("@id", birdId); // This comes from dataGridView1_CellClick
+                    cmd.Parameters.AddWithValue("@id", birdId); 
 
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -80,20 +80,20 @@ namespace BirdShopManagement
 
         private void delete_btn_Click(object sender, EventArgs e)
         {
-            // 1. Validate selection
+            
             if (birdId == 0)
             {
                 MessageBox.Show("Select a bird from the list first!");
                 return;
             }
 
-            // 2. Confirm deletion
+            
             DialogResult res = MessageBox.Show("Are you sure you want to delete this bird?", "Confirm", MessageBoxButtons.YesNo);
             if (res == DialogResult.Yes)
             {
                 try
                 {
-                    // Use the connection string from your global 'con' object
+                    
                     using (SqlConnection conLocal = new SqlConnection(con.ConnectionString))
                     {
                         string query = "DELETE FROM birdsTab WHERE P_ID=@id";
@@ -101,14 +101,14 @@ namespace BirdShopManagement
                         cmd.Parameters.AddWithValue("@id", birdId);
 
                         conLocal.Open();
-                        int rowsAffected = cmd.ExecuteNonQuery(); // Check if deletion actually happened
+                        int rowsAffected = cmd.ExecuteNonQuery(); 
                         conLocal.Close();
 
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("Bird Deleted Successfully!");
 
-                            // 3. Reset UI and refresh
+                            
                             birdId = 0;
                             txtName.Clear();
                             txtPrice.Clear();
@@ -123,12 +123,12 @@ namespace BirdShopManagement
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Ensure the user clicked a valid row, not the header
+            
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
 
-                // Use column index 0 for P_ID to be safe
+                
                 if (row.Cells[0].Value != null && row.Cells[0].Value != DBNull.Value)
                 {
                     birdId = Convert.ToInt32(row.Cells[0].Value);

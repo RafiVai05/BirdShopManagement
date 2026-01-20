@@ -24,23 +24,23 @@ namespace BirdShopManagement
 
             if (selected == "Birds")
             {
-                Birds f = new Birds(); // Create instance
+                Birds f = new Birds(); 
                 f.TopLevel = false;
                 
                 f.Dock = DockStyle.Fill;
                 rightPanel.Controls.Add(f);
                 f.Show();
-                f.LoadData(); // FORCED RELOAD: Ensures data shows immediately
+                f.LoadData(); 
             }
             else if (selected == "Accessories")
             {
-                Accessories f = new Accessories(); // Create instance
+                Accessories f = new Accessories(); 
                 f.TopLevel = false;
                 
                 f.Dock = DockStyle.Fill;
                 rightPanel.Controls.Add(f);
                 f.Show();
-                f.LoadData(); // FORCED RELOAD: Ensures data shows immediately
+                f.LoadData(); 
             }
         }
 

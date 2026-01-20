@@ -5,7 +5,7 @@ namespace BirdShopManagement
 {
     public partial class Admin : Form
     {
-        //private string loggedUser;
+        
 
         public Admin()
         {
@@ -32,7 +32,7 @@ namespace BirdShopManagement
             rightPanel.Controls.Add(emp);
 
             emp.Show();
-            // This calls the method we made 'public' in the Employee class
+            
             emp.LoadEmployeeData();
         }
 

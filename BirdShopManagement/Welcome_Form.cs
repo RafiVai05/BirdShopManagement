@@ -53,7 +53,7 @@ namespace BirdShopManagement
                 return;
             }
 
-            // Database Check for Employees and Customers
+            
             try
             {
                 using (SqlConnection con = new SqlConnection(connStr))

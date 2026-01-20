@@ -29,7 +29,7 @@ namespace BirdShopManagement
                 {
                     con.Open();
 
-                    // Check if exists
+                    
                     SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM signInTab WHERE Username=@u", con);
                     checkCmd.Parameters.AddWithValue("@u", username);
                     if ((int)checkCmd.ExecuteScalar() > 0)
@@ -38,7 +38,7 @@ namespace BirdShopManagement
                         return;
                     }
 
-                    // 1. Insert into Profile Table
+                    
                     string q1 = "INSERT INTO signUpTab (Username, Password, Address, Contact) VALUES (@un,@pw,@ad,@ct)";
                     SqlCommand cmd1 = new SqlCommand(q1, con);
                     cmd1.Parameters.AddWithValue("@un", username);
@@ -47,7 +47,7 @@ namespace BirdShopManagement
                     cmd1.Parameters.AddWithValue("@ct", contact);
                     cmd1.ExecuteNonQuery();
 
-                    // 2. Insert into Auth Table with Role
+                    
                     string q2 = "INSERT INTO signInTab (Username, Password, UserRole) VALUES (@un, @pw, 'CUSTOMER')";
                     SqlCommand cmd2 = new SqlCommand(q2, con);
                     cmd2.Parameters.AddWithValue("@un", username);

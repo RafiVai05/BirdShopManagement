@@ -7,7 +7,7 @@ namespace BirdShopManagement
 {
     public partial class Customer_form : Form
     {
-        // Shared connection string used across the project
+        
         SqlConnection con = new SqlConnection(@"Data Source=localhost\SQLEXPRESS; Initial Catalog=birdshopdb; Integrated Security=True; Encrypt=True; TrustServerCertificate=True");
 
         public Customer_form()
@@ -15,7 +15,7 @@ namespace BirdShopManagement
             InitializeComponent();
         }
 
-        // FETCH PRODUCTS: Automatically shows what employees added to birdsTab or acsTab
+        
         private void cmbProductType_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -24,17 +24,17 @@ namespace BirdShopManagement
 
                 string selected = cmbProductType.SelectedItem.ToString();
 
-                // Selects from the table managed by employees based on category
+                
                 string query = (selected == "Birds") ? "SELECT * FROM birdsTab" : "SELECT * FROM acsTab";
 
                 SqlDataAdapter da = new SqlDataAdapter(query, con);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
-                // Binds employee data to the inventory grid
+                
                 dgvInventory.DataSource = dt;
 
-                // Sync the Product ID ComboBox for selection
+                
                 cmbProductID.Items.Clear();
                 string idCol = (selected == "Birds") ? "P_ID" : "A_ID";
 
@@ -46,18 +46,18 @@ namespace BirdShopManagement
             catch (Exception ex) { MessageBox.Show("Error loading inventory: " + ex.Message); }
         }
 
-        // SYNC SELECTION: Populates textboxes when a product is clicked in the grid
+        
         private void dgvInventory_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                // Grabs ID from the first column (Index 0)
+                
                 string id = dgvInventory.Rows[e.RowIndex].Cells[0].Value?.ToString();
                 cmbProductID.SelectedItem = id;
             }
         }
 
-        // DYNAMIC FILL: Handles naming differences between Birds and Accessories tables
+        
         private void cmbProductID_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbProductID.SelectedItem == null || cmbProductType.SelectedItem == null) return;
@@ -65,26 +65,26 @@ namespace BirdShopManagement
             string selectedId = cmbProductID.SelectedItem.ToString();
             string selectedType = cmbProductType.SelectedItem.ToString();
 
-            // Determine column names based on category
+            
             string idCol = (selectedType == "Birds") ? "P_ID" : "A_ID";
             string nameCol = (selectedType == "Birds") ? "Bird_Name" : "Name";
 
-            // Loop through the inventory grid to find the matching ID
+            
             foreach (DataGridViewRow row in dgvInventory.Rows)
             {
                 if (row.Cells[idCol].Value?.ToString() == selectedId)
                 {
-                    // Populate the textboxes automatically
+                    
                     txtProductName.Text = row.Cells[nameCol].Value?.ToString();
                     txtPrice.Text = row.Cells["Price"].Value?.ToString();
 
-                    // Set stock information
+                    
                     if (row.Cells["Quantity"].Value != null && row.Cells["Quantity"].Value != DBNull.Value)
                     {
                         int stock = Convert.ToInt32(row.Cells["Quantity"].Value);
                         lblStockCount.Text = "Stock: " + stock;
 
-                        // Set purchase limits
+                        
                         numQuantity.Maximum = stock;
                         numQuantity.Value = (stock > 0) ? 1 : 0;
                     }
@@ -104,12 +104,12 @@ namespace BirdShopManagement
             double unitPrice = Convert.ToDouble(txtPrice.Text);
             double subtotal = unitPrice * (double)numQuantity.Value;
 
-            // Adds item to the cart grid on the right
+            
             dgvCart.Rows.Add(cmbProductID.SelectedItem.ToString(), txtProductName.Text, numQuantity.Value, subtotal);
             CalculateTotal();
         }
 
-        // PAYMENT LOGIC: Updates (reduces) database stock after purchase
+        
         private void btnPay_Click(object sender, EventArgs e)
         {
             if (dgvCart.Rows.Count == 0)
@@ -133,7 +133,7 @@ namespace BirdShopManagement
                         int qtyPurchased = Convert.ToInt32(row.Cells[2].Value);
                         string selectedType = cmbProductType.SelectedItem.ToString();
 
-                        // UPDATE query to subtract quantity from database
+                        
                         string updateQuery = (selectedType == "Birds")
                             ? "UPDATE birdsTab SET Quantity = Quantity - @qty WHERE P_ID = @id"
                             : "UPDATE acsTab SET Quantity = Quantity - @qty WHERE A_ID = @id";
@@ -150,7 +150,7 @@ namespace BirdShopManagement
                     MessageBox.Show("Purchase Successful! Stock has been updated.");
 
                     ClearAllFields();
-                    cmbProductType_SelectedIndexChanged(null, null); // Refreshes inventory view
+                    cmbProductType_SelectedIndexChanged(null, null); 
                 }
                 catch (Exception ex)
                 {

@@ -9,7 +9,7 @@ namespace BirdShopManagement
     {
         SqlConnection con = new SqlConnection(@"Data Source=localhost\SQLEXPRESS; Initial Catalog=birdshopdb; Integrated Security=True; Encrypt=True; TrustServerCertificate=True");
         int empId = 0;
-        string oldUsername = ""; // To track username changes
+        string oldUsername = ""; 
 
         public Employee() { InitializeComponent(); }
 
@@ -29,13 +29,13 @@ namespace BirdShopManagement
             try
             {
                 con.Open();
-                // 1. Add to Employees
+                
                 SqlCommand cmd1 = new SqlCommand("INSERT INTO Employees (Username, Password) VALUES (@u, @p)", con);
                 cmd1.Parameters.AddWithValue("@u", txtUsername.Text.Trim());
                 cmd1.Parameters.AddWithValue("@p", txtPassword.Text.Trim());
                 cmd1.ExecuteNonQuery();
 
-                // 2. Add to signInTab
+                
                 SqlCommand cmd2 = new SqlCommand("INSERT INTO signInTab (Username, Password, UserRole) VALUES (@u, @p, 'EMPLOYEE')", con);
                 cmd2.Parameters.AddWithValue("@u", txtUsername.Text.Trim());
                 cmd2.Parameters.AddWithValue("@p", txtPassword.Text.Trim());
@@ -55,14 +55,14 @@ namespace BirdShopManagement
             try
             {
                 con.Open();
-                // Update Employees table
+                
                 SqlCommand cmd1 = new SqlCommand("UPDATE Employees SET Username=@u, Password=@p WHERE Id=@id", con);
                 cmd1.Parameters.AddWithValue("@u", txtUsername.Text.Trim());
                 cmd1.Parameters.AddWithValue("@p", txtPassword.Text.Trim());
                 cmd1.Parameters.AddWithValue("@id", empId);
                 cmd1.ExecuteNonQuery();
 
-                // Update signInTab table based on the OLD username
+                
                 SqlCommand cmd2 = new SqlCommand("UPDATE signInTab SET Username=@u, Password=@p WHERE Username=@oldU", con);
                 cmd2.Parameters.AddWithValue("@u", txtUsername.Text.Trim());
                 cmd2.Parameters.AddWithValue("@p", txtPassword.Text.Trim());
