@@ -209,5 +209,12 @@ namespace BirdShopManagement
             welcome.Show();
             this.Close(); // Closes the customer form
         }
+
+        private void btnPay_Click_1(object sender, EventArgs e)
+        {
+            PayForm pay = new PayForm();
+            pay.Show();
+            this.Close();
+        }
     }
 }

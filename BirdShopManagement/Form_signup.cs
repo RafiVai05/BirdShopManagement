@@ -85,10 +85,13 @@ namespace BirdShopManagement
                     signinCmd.ExecuteNonQuery();
                 }
 
-                MessageBox.Show("Signup successful! Please login.");
-
-
+                UserSession.CurrentUsername = username;
+                MessageBox.Show("Signup successful!");
                
+                this.Hide();
+
+
+
             }
             catch (Exception ex)
             {

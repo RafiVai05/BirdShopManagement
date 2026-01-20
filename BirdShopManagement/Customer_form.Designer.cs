@@ -33,12 +33,21 @@
             this.label2 = new System.Windows.Forms.Label();
             this.upperFrontPanel = new System.Windows.Forms.Panel();
             this.dgvInventory = new System.Windows.Forms.DataGridView();
+            this.P_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bird_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.cmbProductType = new System.Windows.Forms.ComboBox();
             this.logout_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.rightPanel = new System.Windows.Forms.Panel();
+            this.dgvCart = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPay = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -56,24 +65,15 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dgvCart = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.P_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Bird_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.leftTopPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.upperFrontPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
             this.panel1.SuspendLayout();
             this.rightPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             this.leftBottomPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             this.SuspendLayout();
             // 
             // leftTopPanel
@@ -131,6 +131,42 @@
             this.dgvInventory.Size = new System.Drawing.Size(642, 150);
             this.dgvInventory.TabIndex = 0;
             this.dgvInventory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventory_CellClick);
+            // 
+            // P_ID
+            // 
+            this.P_ID.DataPropertyName = "P_ID";
+            this.P_ID.HeaderText = "P_ID";
+            this.P_ID.MinimumWidth = 6;
+            this.P_ID.Name = "P_ID";
+            this.P_ID.ReadOnly = true;
+            this.P_ID.Width = 125;
+            // 
+            // Bird_Name
+            // 
+            this.Bird_Name.DataPropertyName = "Bird_Name";
+            this.Bird_Name.HeaderText = "Bird_Name";
+            this.Bird_Name.MinimumWidth = 6;
+            this.Bird_Name.Name = "Bird_Name";
+            this.Bird_Name.ReadOnly = true;
+            this.Bird_Name.Width = 125;
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "Price";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            this.Price.Width = 125;
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.MinimumWidth = 6;
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            this.Quantity.Width = 125;
             // 
             // panel1
             // 
@@ -199,14 +235,67 @@
             this.rightPanel.Size = new System.Drawing.Size(789, 583);
             this.rightPanel.TabIndex = 9;
             // 
+            // dgvCart
+            // 
+            this.dgvCart.AllowUserToDeleteRows = false;
+            this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7});
+            this.dgvCart.Location = new System.Drawing.Point(17, 15);
+            this.dgvCart.Name = "dgvCart";
+            this.dgvCart.ReadOnly = true;
+            this.dgvCart.RowHeadersWidth = 51;
+            this.dgvCart.RowTemplate.Height = 24;
+            this.dgvCart.Size = new System.Drawing.Size(642, 150);
+            this.dgvCart.TabIndex = 68;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "P_ID";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Bird_Name";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Bird_Name";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Price";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Quantity";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Quantity";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 125;
+            // 
             // btnPay
             // 
+            this.btnPay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnPay.Location = new System.Drawing.Point(259, 348);
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(207, 34);
             this.btnPay.TabIndex = 67;
             this.btnPay.Text = "PAY";
             this.btnPay.UseVisualStyleBackColor = true;
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click_1);
             // 
             // lblTotal
             // 
@@ -368,93 +457,6 @@
             this.label3.TabIndex = 60;
             this.label3.Text = "Product Quantity";
             // 
-            // dgvCart
-            // 
-            this.dgvCart.AllowUserToDeleteRows = false;
-            this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7});
-            this.dgvCart.Location = new System.Drawing.Point(17, 15);
-            this.dgvCart.Name = "dgvCart";
-            this.dgvCart.ReadOnly = true;
-            this.dgvCart.RowHeadersWidth = 51;
-            this.dgvCart.RowTemplate.Height = 24;
-            this.dgvCart.Size = new System.Drawing.Size(642, 150);
-            this.dgvCart.TabIndex = 68;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "P_ID";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Bird_Name";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Bird_Name";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Price";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Quantity";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Quantity";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 125;
-            // 
-            // P_ID
-            // 
-            this.P_ID.DataPropertyName = "P_ID";
-            this.P_ID.HeaderText = "P_ID";
-            this.P_ID.MinimumWidth = 6;
-            this.P_ID.Name = "P_ID";
-            this.P_ID.ReadOnly = true;
-            this.P_ID.Width = 125;
-            // 
-            // Bird_Name
-            // 
-            this.Bird_Name.DataPropertyName = "Bird_Name";
-            this.Bird_Name.HeaderText = "Bird_Name";
-            this.Bird_Name.MinimumWidth = 6;
-            this.Bird_Name.Name = "Bird_Name";
-            this.Bird_Name.ReadOnly = true;
-            this.Bird_Name.Width = 125;
-            // 
-            // Price
-            // 
-            this.Price.DataPropertyName = "Price";
-            this.Price.HeaderText = "Price";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            this.Price.Width = 125;
-            // 
-            // Quantity
-            // 
-            this.Quantity.DataPropertyName = "Quantity";
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.MinimumWidth = 6;
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            this.Quantity.Width = 125;
-            // 
             // Customer_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -475,10 +477,10 @@
             this.panel1.PerformLayout();
             this.rightPanel.ResumeLayout(false);
             this.rightPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
             this.leftBottomPanel.ResumeLayout(false);
             this.leftBottomPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
             this.ResumeLayout(false);
 
         }
