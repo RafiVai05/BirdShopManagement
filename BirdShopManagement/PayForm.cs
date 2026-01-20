@@ -177,5 +177,10 @@ namespace BirdShopManagement
             }
             catch (Exception ex) { MessageBox.Show("Update Error: " + ex.Message); }
         }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

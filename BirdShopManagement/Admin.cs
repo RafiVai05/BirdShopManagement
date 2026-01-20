@@ -5,7 +5,7 @@ namespace BirdShopManagement
 {
     public partial class Admin : Form
     {
-        private string loggedUser;
+        //private string loggedUser;
 
         public Admin()
         {

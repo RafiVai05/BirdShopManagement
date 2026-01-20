@@ -46,20 +46,20 @@ namespace BirdShopManagement
 
             if (string.IsNullOrEmpty(selectedRole)) return;
 
-            // 1. Admin Hard-coded Check
+            
             if (selectedRole == "ADMIN" && username == "admin" && password == "admin")
             {
                 NavigateToAdminDashboard();
                 return;
             }
 
-            // 2. Database Check for Employees and Customers
+            // Database Check for Employees and Customers
             try
             {
                 using (SqlConnection con = new SqlConnection(connStr))
                 {
                     con.Open();
-                    // Check credentials AND role in the signInTab
+                    
                     string query = "SELECT COUNT(*) FROM signInTab WHERE Username=@u AND Password=@p AND UserRole=@r";
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
@@ -88,7 +88,7 @@ namespace BirdShopManagement
         private void NavigateToAdminDashboard() { new Admin().Show(); this.Hide(); }
         private void NavigateToEmployeeDashboard()
         {
-            // This MUST point to Employee_Form (the one with the ComboBox)
+            
             Employee_Form empDashboard = new Employee_Form();
             empDashboard.Show();
             this.Hide();

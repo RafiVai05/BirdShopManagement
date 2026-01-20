@@ -207,12 +207,12 @@ namespace BirdShopManagement
         {
             Welcome_Form welcome = new Welcome_Form();
             welcome.Show();
-            this.Close(); // Closes the customer form
+            this.Close(); 
         }
 
         private void btnPay_Click_1(object sender, EventArgs e)
         {
-            // Verify session before opening PayForm
+           
             if (string.IsNullOrEmpty(UserSession.CurrentUsername))
             {
                 MessageBox.Show("Error: Session expired. Please log in again.");
@@ -222,9 +222,33 @@ namespace BirdShopManagement
                 return;
             }
 
-            PayForm pay = new PayForm();
+            
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ID");
+            dt.Columns.Add("Name");
+            dt.Columns.Add("Quantity");
+            dt.Columns.Add("Total");
+            dt.Columns.Add("Category"); 
+
+            
+            foreach (DataGridViewRow row in dgvCart.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                
+                dt.Rows.Add(
+                    row.Cells[0].Value,
+                    row.Cells[1].Value,
+                    row.Cells[2].Value,
+                    row.Cells[3].Value,
+                    cmbProductType.SelectedItem.ToString()
+                );
+            }
+
+            
+            PayForm pay = new PayForm(dt, lblTotal.Text);
             pay.Show();
-            this.Hide(); // Use Hide instead of Close if you want to go back to the cart later
+            this.Hide();
         }
     }
 }
