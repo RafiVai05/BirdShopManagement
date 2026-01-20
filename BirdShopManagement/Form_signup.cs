@@ -88,7 +88,7 @@ namespace BirdShopManagement
                 UserSession.CurrentUsername = username;
                 MessageBox.Show("Signup successful!");
                
-                this.Hide();
+                
 
 
 

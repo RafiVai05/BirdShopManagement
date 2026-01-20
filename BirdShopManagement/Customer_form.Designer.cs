@@ -293,7 +293,7 @@
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(207, 34);
             this.btnPay.TabIndex = 67;
-            this.btnPay.Text = "PAY";
+            this.btnPay.Text = "GO TO PAY";
             this.btnPay.UseVisualStyleBackColor = true;
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click_1);
             // 

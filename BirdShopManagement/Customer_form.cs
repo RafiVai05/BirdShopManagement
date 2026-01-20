@@ -212,9 +212,39 @@ namespace BirdShopManagement
 
         private void btnPay_Click_1(object sender, EventArgs e)
         {
-            PayForm pay = new PayForm();
+            if (dgvCart.Rows.Count == 0)
+            {
+                MessageBox.Show("Your cart is empty!");
+                return;
+            }
+
+            // 1. Create a DataTable to hold the cart data
+            DataTable cartData = new DataTable();
+            cartData.Columns.Add("ID");
+            cartData.Columns.Add("Name");
+            cartData.Columns.Add("Quantity", typeof(int));
+            cartData.Columns.Add("Total", typeof(double));
+            cartData.Columns.Add("Category"); // Crucial for knowing which table to update
+
+            // 2. Fill it from the DataGridView
+            foreach (DataGridViewRow row in dgvCart.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                // Note: We use the 'cmbProductType' to tell PayForm if it's a Bird or Accessory
+                cartData.Rows.Add(
+                    row.Cells[0].Value,
+                    row.Cells[1].Value,
+                    row.Cells[2].Value,
+                    row.Cells[3].Value,
+                    cmbProductType.SelectedItem.ToString()
+                );
+            }
+
+            // 3. Pass this table to the PayForm
+            PayForm pay = new PayForm(cartData, lblTotal.Text);
             pay.Show();
-            this.Close();
+            this.Hide(); // Hide instead of Close so we don't crash the app if it's the main form
         }
     }
 }

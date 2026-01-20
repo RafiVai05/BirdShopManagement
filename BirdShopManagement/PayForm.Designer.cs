@@ -41,7 +41,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnPayReceipt = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -169,7 +169,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.btnPayReceipt);
             this.groupBox2.Controls.Add(this.panel2);
             this.groupBox2.Location = new System.Drawing.Point(418, 12);
             this.groupBox2.Name = "groupBox2";
@@ -177,14 +177,15 @@
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             // 
-            // button2
+            // btnPayReceipt
             // 
-            this.button2.Location = new System.Drawing.Point(65, 139);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(211, 41);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "Pay";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnPayReceipt.Location = new System.Drawing.Point(65, 139);
+            this.btnPayReceipt.Name = "btnPayReceipt";
+            this.btnPayReceipt.Size = new System.Drawing.Size(211, 41);
+            this.btnPayReceipt.TabIndex = 25;
+            this.btnPayReceipt.Text = "Pay";
+            this.btnPayReceipt.UseVisualStyleBackColor = true;
+            this.btnPayReceipt.Click += new System.EventHandler(this.btnPayReceipt_Click);
             // 
             // panel2
             // 
@@ -244,7 +245,7 @@
         private System.Windows.Forms.MaskedTextBox txtcontact;
         private System.Windows.Forms.MaskedTextBox txtaddress;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnPayReceipt;
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.DataGridViewTextBoxColumn Contact;
     }
