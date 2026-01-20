@@ -44,6 +44,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -120,7 +121,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(307, 150);
             this.dataGridView1.TabIndex = 19;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Address
             // 
@@ -170,6 +170,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.panel2);
             this.groupBox2.Location = new System.Drawing.Point(418, 12);
@@ -207,6 +208,15 @@
             this.label5.Size = new System.Drawing.Size(181, 20);
             this.label5.TabIndex = 24;
             this.label5.Text = "Payment Information";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(65, 222);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(211, 40);
+            this.button3.TabIndex = 26;
+            this.button3.Text = "Print";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // PayForm
             // 
@@ -248,5 +258,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.DataGridViewTextBoxColumn Contact;
+        private System.Windows.Forms.Button button3;
     }
 }

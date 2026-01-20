@@ -99,6 +99,7 @@ namespace BirdShopManagement
                         string query = "SELECT COUNT(*) FROM signUpTab WHERE Username=@u AND Password=@p";
                         if (ExecuteLoginQuery(query, username, password, con))
                         {
+                            UserSession.CurrentUsername = username;
                             MessageBox.Show("Customer login successful!");
                             // FIXED: Now calls the navigation method to open the portal
                             NavigateToCustomerDashboard();

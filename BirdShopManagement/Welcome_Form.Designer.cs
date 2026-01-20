@@ -47,13 +47,16 @@ namespace BirdShopManagement
             this.label8 = new System.Windows.Forms.Label();
             this.exit_btn = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.MediumAquamarine;
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(-2, -5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(304, 610);
@@ -64,7 +67,7 @@ namespace BirdShopManagement
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(32, 297);
+            this.label1.Location = new System.Drawing.Point(41, 410);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(227, 62);
             this.label1.TabIndex = 1;
@@ -111,7 +114,6 @@ namespace BirdShopManagement
             this.forget_btn.TabIndex = 67;
             this.forget_btn.Text = "FORGET PASSWORD";
             this.forget_btn.UseVisualStyleBackColor = false;
-//           this.forget_btn.Click += new System.EventHandler(this.forget_btn_Click);
             // 
             // signup
             // 
@@ -175,7 +177,6 @@ namespace BirdShopManagement
             this.textPassword.PasswordChar = '*';
             this.textPassword.Size = new System.Drawing.Size(216, 28);
             this.textPassword.TabIndex = 61;
-//            this.textPassword.TextChanged += new System.EventHandler(this.textPassword_TextChanged);
             // 
             // label6
             // 
@@ -197,7 +198,6 @@ namespace BirdShopManagement
             this.textUserName.Name = "textUserName";
             this.textUserName.Size = new System.Drawing.Size(216, 28);
             this.textUserName.TabIndex = 59;
-//            this.textUserName.TextChanged += new System.EventHandler(this.textUserName_TextChanged);
             // 
             // label8
             // 
@@ -238,6 +238,15 @@ namespace BirdShopManagement
             this.comboBox1.TabIndex = 68;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::BirdShopManagement.Properties.Resources.images__1_1;
+            this.pictureBox1.Location = new System.Drawing.Point(27, 95);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(262, 186);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // Welcome_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -265,6 +274,7 @@ namespace BirdShopManagement
             this.Load += new System.EventHandler(this.signin_btn_Click);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,6 +297,7 @@ namespace BirdShopManagement
         private Label label1;
         private Button exit_btn;
         private ComboBox comboBox1;
+        private PictureBox pictureBox1;
     }
 }
 

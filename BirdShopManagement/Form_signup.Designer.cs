@@ -42,10 +42,12 @@ namespace BirdShopManagement
             this.check_bx_ShowPass = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUsername
@@ -57,7 +59,7 @@ namespace BirdShopManagement
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(216, 28);
             this.txtUsername.TabIndex = 2;
-           this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
+            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // txtPass
             // 
@@ -68,7 +70,7 @@ namespace BirdShopManagement
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(216, 29);
             this.txtPass.TabIndex = 3;
-           this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
+            this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
             // 
             // button1
             // 
@@ -95,7 +97,7 @@ namespace BirdShopManagement
             this.button2.TabIndex = 5;
             this.button2.Text = "BACK";
             this.button2.UseVisualStyleBackColor = false;
-           this.button2.Click += new System.EventHandler(this.signup_back_btn_click);
+            this.button2.Click += new System.EventHandler(this.signup_back_btn_click);
             // 
             // txtAdd
             // 
@@ -106,7 +108,7 @@ namespace BirdShopManagement
             this.txtAdd.Name = "txtAdd";
             this.txtAdd.Size = new System.Drawing.Size(216, 81);
             this.txtAdd.TabIndex = 9;
-           this.txtAdd.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.txtAdd.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // txtContact
             // 
@@ -117,7 +119,7 @@ namespace BirdShopManagement
             this.txtContact.Name = "txtContact";
             this.txtContact.Size = new System.Drawing.Size(216, 29);
             this.txtContact.TabIndex = 8;
-           this.txtContact.TextChanged += new System.EventHandler(this.txtContact_TextChanged);
+            this.txtContact.TextChanged += new System.EventHandler(this.txtContact_TextChanged);
             // 
             // label7
             // 
@@ -167,11 +169,23 @@ namespace BirdShopManagement
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-3, -5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(300, 561);
+            this.panel1.Size = new System.Drawing.Size(310, 561);
             this.panel1.TabIndex = 80;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(38, 346);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(227, 62);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "      SING UP TO\r\n ANGRY BIRD SHOP";
             // 
             // label2
             // 
@@ -193,22 +207,20 @@ namespace BirdShopManagement
             this.label4.TabIndex = 82;
             this.label4.Text = "Address";
             // 
-            // label1
+            // pictureBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(38, 346);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(227, 62);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "      SING UP TO\r\n ANGRY BIRD SHOP";
+            this.pictureBox1.Image = global::BirdShopManagement.Properties.Resources.lead;
+            this.pictureBox1.Location = new System.Drawing.Point(15, 17);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(292, 326);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // Form_signup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(582, 553);
+            this.ClientSize = new System.Drawing.Size(598, 553);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtContact);
@@ -225,9 +237,10 @@ namespace BirdShopManagement
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_signup";
             this.Text = "Form_signup";
-           this.Load += new System.EventHandler(this.Form_signup_Load);
+            this.Load += new System.EventHandler(this.Form_signup_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,5 +261,6 @@ namespace BirdShopManagement
         private Label label2;
         private Label label4;
         private Label label1;
+        private PictureBox pictureBox1;
     }
 }

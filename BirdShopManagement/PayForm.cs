@@ -7,23 +7,27 @@ namespace BirdShopManagement
 {
     public partial class PayForm : Form
     {
+        // Centralized Connection String
         string connStr = @"Data Source=localhost\SQLEXPRESS; Initial Catalog=birdshopdb; Integrated Security=True; Encrypt=True; TrustServerCertificate=True";
 
         public PayForm()
         {
             InitializeComponent();
-            // This ensures columns are created automatically from the database
+            // Automatically generate columns in the grid based on database results
             dataGridView1.AutoGenerateColumns = true;
         }
 
         private void PayForm_Load(object sender, EventArgs e)
         {
-            // Debug check: If this shows a blank message, your Signup/Login didn't set the session!
+            // Verify if a session exists
             if (string.IsNullOrEmpty(UserSession.CurrentUsername))
             {
-                MessageBox.Show("Debug: No user logged in. Please sign up first.");
+                MessageBox.Show("No active user session found. Please log in again.");
+                this.Close();
                 return;
             }
+
+            // Automatically pull data when the form opens
             LoadUserData();
         }
 
@@ -33,17 +37,29 @@ namespace BirdShopManagement
             {
                 using (SqlConnection con = new SqlConnection(connStr))
                 {
-                    // Use a query that specifically targets the current user
+                    con.Open();
+                    // Fetch only the Address and Contact for the current logged-in user
                     string query = "SELECT Address, Contact FROM signUpTab WHERE Username = @u";
-                    SqlDataAdapter da = new SqlDataAdapter(query, con);
-                    da.SelectCommand.Parameters.AddWithValue("@u", UserSession.CurrentUsername);
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@u", UserSession.CurrentUsername);
 
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
 
-                    // Force the grid to refresh its data source
-                    dataGridView1.DataSource = null;
+                    // 1. Populate the DataGridView
                     dataGridView1.DataSource = dt;
+
+                    // 2. AUTOMATICALLY fill the textboxes with the customer's details
+                    if (dt.Rows.Count > 0)
+                    {
+                        txtaddress.Text = dt.Rows[0]["Address"].ToString();
+                        txtcontact.Text = dt.Rows[0]["Contact"].ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No shipping details found for: " + UserSession.CurrentUsername);
+                    }
                 }
             }
             catch (Exception ex)
@@ -52,28 +68,24 @@ namespace BirdShopManagement
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Note: Use CellClick instead of CellContentClick if you want to click anywhere in the row
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-
-                // Use .ToString() carefully in case values are null in DB
-                txtaddress.Text = row.Cells["Address"].Value?.ToString() ?? "";
-                txtcontact.Text = row.Cells["Contact"].Value?.ToString() ?? "";
-            }
-        }
-
         private void update_btn_Click(object sender, EventArgs e)
         {
+            // Basic validation
+            if (string.IsNullOrWhiteSpace(txtaddress.Text) || string.IsNullOrWhiteSpace(txtcontact.Text))
+            {
+                MessageBox.Show("Address and Contact fields cannot be empty.");
+                return;
+            }
+
             try
             {
                 using (SqlConnection con = new SqlConnection(connStr))
                 {
                     con.Open();
+                    // Update only the current user's profile
                     string query = "UPDATE signUpTab SET Address=@ad, Contact=@ct WHERE Username=@un";
                     SqlCommand cmd = new SqlCommand(query, con);
+
                     cmd.Parameters.AddWithValue("@ad", txtaddress.Text.Trim());
                     cmd.Parameters.AddWithValue("@ct", txtcontact.Text.Trim());
                     cmd.Parameters.AddWithValue("@un", UserSession.CurrentUsername);
@@ -81,12 +93,32 @@ namespace BirdShopManagement
                     int result = cmd.ExecuteNonQuery();
                     if (result > 0)
                     {
-                        MessageBox.Show("Profile Updated!");
-                        LoadUserData();
+                        MessageBox.Show("Profile Updated Successfully!");
+                        LoadUserData(); // Refresh the grid and textboxes
                     }
                 }
             }
-            catch (Exception ex) { MessageBox.Show("Update Failed: " + ex.Message); }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Update Failed: " + ex.Message);
+            }
+        }
+
+        // Optional: Manual sync if a row is clicked in the grid
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                txtaddress.Text = row.Cells["Address"].Value?.ToString() ?? "";
+                txtcontact.Text = row.Cells["Contact"].Value?.ToString() ?? "";
+            }
+        }
+
+        private void pay_btn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Payment Processed for: " + UserSession.CurrentUsername +
+                            "\nShipping to: " + txtaddress.Text);
         }
     }
 }

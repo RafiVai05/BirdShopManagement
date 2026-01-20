@@ -291,6 +291,21 @@
   <ItemGroup>
     <None Include="Resources\71mx5drS-wL.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\U6DY7acwmpvkZjrMwLxEQP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mybird_sun_conure_on_perch-900x651.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\monk-parakeet-eating-wild-fruits-1169932019-63f8792a53d643cf9d51b95735c26ca8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lead.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
