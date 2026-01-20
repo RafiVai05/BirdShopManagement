@@ -95,28 +95,44 @@ namespace BirdShopManagement
                         foreach (DataRow row in cartItems.Rows)
                         {
                             string id = row["ID"].ToString();
+                            string pName = row["Name"].ToString(); // Grab Product Name
                             int qty = Convert.ToInt32(row["Quantity"]);
+                            decimal price = Convert.ToDecimal(row["Total"]); // Total price for this item
                             string category = row["Category"].ToString();
 
-                            string query = (category == "Birds") 
+                            // 1. UPDATE STOCK LOGIC
+                            string updateQuery = (category == "Birds")
                                 ? "UPDATE birdsTab SET Quantity = Quantity - @q WHERE P_ID = @id"
                                 : "UPDATE acsTab SET Quantity = Quantity - @q WHERE A_ID = @id";
 
-                            using (SqlCommand cmd = new SqlCommand(query, con, transaction))
+                            using (SqlCommand cmd = new SqlCommand(updateQuery, con, transaction))
                             {
                                 cmd.Parameters.AddWithValue("@q", qty);
                                 cmd.Parameters.AddWithValue("@id", id);
                                 cmd.ExecuteNonQuery();
                             }
+
+                            // 2. SAVE TO HISTORY LOGIC (OrdersTab)
+                            string historyQuery = "INSERT INTO OrdersTab (Username, Product_Name, Category, Quantity, Total_Price) " +
+                                                  "VALUES (@un, @pn, @cat, @qty, @prc)";
+                            using (SqlCommand historyCmd = new SqlCommand(historyQuery, con, transaction))
+                            {
+                                historyCmd.Parameters.AddWithValue("@un", UserSession.CurrentUsername);
+                                historyCmd.Parameters.AddWithValue("@pn", pName);
+                                historyCmd.Parameters.AddWithValue("@cat", category);
+                                historyCmd.Parameters.AddWithValue("@qty", qty);
+                                historyCmd.Parameters.AddWithValue("@prc", price);
+                                historyCmd.ExecuteNonQuery();
+                            }
                         }
                         transaction.Commit();
                         return true;
                     }
-                    catch (Exception ex) 
-                    { 
-                        transaction.Rollback(); 
-                        MessageBox.Show("Inventory update failed: " + ex.Message);
-                        return false; 
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show("Transaction failed: " + ex.Message);
+                        return false;
                     }
                 }
             }
