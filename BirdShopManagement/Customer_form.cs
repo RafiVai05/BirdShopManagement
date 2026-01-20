@@ -212,9 +212,19 @@ namespace BirdShopManagement
 
         private void btnPay_Click_1(object sender, EventArgs e)
         {
+            // Verify session before opening PayForm
+            if (string.IsNullOrEmpty(UserSession.CurrentUsername))
+            {
+                MessageBox.Show("Error: Session expired. Please log in again.");
+                Welcome_Form welcome = new Welcome_Form();
+                welcome.Show();
+                this.Close();
+                return;
+            }
+
             PayForm pay = new PayForm();
             pay.Show();
-            this.Close();
+            this.Hide(); // Use Hide instead of Close if you want to go back to the cart later
         }
     }
 }

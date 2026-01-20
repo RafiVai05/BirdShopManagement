@@ -59,7 +59,7 @@ namespace BirdShopManagement
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(216, 28);
             this.txtUsername.TabIndex = 2;
-            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
+//            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // txtPass
             // 
@@ -70,7 +70,7 @@ namespace BirdShopManagement
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(216, 29);
             this.txtPass.TabIndex = 3;
-            this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
+//            this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
             // 
             // button1
             // 
@@ -108,7 +108,7 @@ namespace BirdShopManagement
             this.txtAdd.Name = "txtAdd";
             this.txtAdd.Size = new System.Drawing.Size(216, 81);
             this.txtAdd.TabIndex = 9;
-            this.txtAdd.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+//            this.txtAdd.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // txtContact
             // 
@@ -119,7 +119,7 @@ namespace BirdShopManagement
             this.txtContact.Name = "txtContact";
             this.txtContact.Size = new System.Drawing.Size(216, 29);
             this.txtContact.TabIndex = 8;
-            this.txtContact.TextChanged += new System.EventHandler(this.txtContact_TextChanged);
+      //      this.txtContact.TextChanged += new System.EventHandler(this.txtContact_TextChanged);
             // 
             // label7
             // 
@@ -154,7 +154,7 @@ namespace BirdShopManagement
             this.check_bx_ShowPass.TabIndex = 75;
             this.check_bx_ShowPass.Text = "Show Password";
             this.check_bx_ShowPass.UseVisualStyleBackColor = true;
-            this.check_bx_ShowPass.CheckedChanged += new System.EventHandler(this.check_bx_ShowPass_CheckedChanged);
+//            this.check_bx_ShowPass.CheckedChanged += new System.EventHandler(this.check_bx_ShowPass_CheckedChanged);
             // 
             // label6
             // 
@@ -237,7 +237,7 @@ namespace BirdShopManagement
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_signup";
             this.Text = "Form_signup";
-            this.Load += new System.EventHandler(this.Form_signup_Load);
+//            this.Load += new System.EventHandler(this.Form_signup_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
