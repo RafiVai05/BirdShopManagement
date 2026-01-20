@@ -103,7 +103,18 @@ namespace BirdShopManagement
 
         private void check_bx_ShowPass_CheckedChanged(object sender, EventArgs e)
         {
-            textPassword.UseSystemPasswordChar = !check_bx_ShowPass.Checked;
+            if (check_bx_ShowPass.Checked)
+            {
+                
+                textPassword.UseSystemPasswordChar = true;
+               
+            }
+            else
+            {
+                
+                textPassword.UseSystemPasswordChar = false;
+                
+            }
         }
 
         private void exit_btn_Click(object sender, EventArgs e) => Application.Exit();

@@ -128,7 +128,7 @@
             this.dgvInventory.ReadOnly = true;
             this.dgvInventory.RowHeadersWidth = 51;
             this.dgvInventory.RowTemplate.Height = 24;
-            this.dgvInventory.Size = new System.Drawing.Size(642, 150);
+            this.dgvInventory.Size = new System.Drawing.Size(726, 271);
             this.dgvInventory.TabIndex = 0;
             this.dgvInventory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventory_CellClick);
             // 
@@ -244,12 +244,12 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7});
-            this.dgvCart.Location = new System.Drawing.Point(17, 15);
+            this.dgvCart.Location = new System.Drawing.Point(15, 15);
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.ReadOnly = true;
             this.dgvCart.RowHeadersWidth = 51;
             this.dgvCart.RowTemplate.Height = 24;
-            this.dgvCart.Size = new System.Drawing.Size(642, 150);
+            this.dgvCart.Size = new System.Drawing.Size(558, 150);
             this.dgvCart.TabIndex = 68;
             // 
             // dataGridViewTextBoxColumn4

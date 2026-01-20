@@ -25,10 +25,8 @@ namespace BirdShopManagement
             {
                 using (SqlConnection con = new SqlConnection(connStr))
                 {
-                    // Query to get all columns from the history table
-                    string query = "SELECT O_ID as 'Order ID', Username, Product_Name as 'Product', " +
-                                   "Category, Quantity, Total_Price as 'Total BDT', Order_Date as 'Date' " +
-                                   "FROM OrdersTab ORDER BY O_ID DESC";
+                    
+                    string query = "SELECT O_ID, Username, Product_Name, Category, Quantity, Total_Price, Order_Date FROM OrdersTab ORDER BY O_ID DESC";
 
                     SqlDataAdapter da = new SqlDataAdapter(query, con);
                     DataTable dt = new DataTable();

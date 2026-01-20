@@ -51,12 +51,12 @@
             this.Quantity,
             this.Total_Price,
             this.Order_Date});
-            this.dgvHistory.Location = new System.Drawing.Point(12, 78);
+            this.dgvHistory.Location = new System.Drawing.Point(12, 12);
             this.dgvHistory.Name = "dgvHistory";
             this.dgvHistory.ReadOnly = true;
             this.dgvHistory.RowHeadersWidth = 51;
             this.dgvHistory.RowTemplate.Height = 24;
-            this.dgvHistory.Size = new System.Drawing.Size(919, 321);
+            this.dgvHistory.Size = new System.Drawing.Size(1604, 686);
             this.dgvHistory.TabIndex = 0;
             // 
             // O_ID
@@ -65,6 +65,7 @@
             this.O_ID.HeaderText = "O_ID";
             this.O_ID.MinimumWidth = 6;
             this.O_ID.Name = "O_ID";
+            this.O_ID.ReadOnly = true;
             this.O_ID.Width = 125;
             // 
             // Username
@@ -73,6 +74,7 @@
             this.Username.HeaderText = "Username";
             this.Username.MinimumWidth = 6;
             this.Username.Name = "Username";
+            this.Username.ReadOnly = true;
             this.Username.Width = 125;
             // 
             // Product_Name
@@ -81,6 +83,7 @@
             this.Product_Name.HeaderText = "Product_Name";
             this.Product_Name.MinimumWidth = 6;
             this.Product_Name.Name = "Product_Name";
+            this.Product_Name.ReadOnly = true;
             this.Product_Name.Width = 125;
             // 
             // Category
@@ -89,6 +92,7 @@
             this.Category.HeaderText = "Category";
             this.Category.MinimumWidth = 6;
             this.Category.Name = "Category";
+            this.Category.ReadOnly = true;
             this.Category.Width = 125;
             // 
             // Quantity
@@ -97,6 +101,7 @@
             this.Quantity.HeaderText = "Quantity";
             this.Quantity.MinimumWidth = 6;
             this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
             this.Quantity.Width = 125;
             // 
             // Total_Price
@@ -105,6 +110,7 @@
             this.Total_Price.HeaderText = "Total_Price";
             this.Total_Price.MinimumWidth = 6;
             this.Total_Price.Name = "Total_Price";
+            this.Total_Price.ReadOnly = true;
             this.Total_Price.Width = 125;
             // 
             // Order_Date
@@ -113,13 +119,14 @@
             this.Order_Date.HeaderText = "Order_Date";
             this.Order_Date.MinimumWidth = 6;
             this.Order_Date.Name = "Order_Date";
+            this.Order_Date.ReadOnly = true;
             this.Order_Date.Width = 125;
             // 
             // CustomerHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1133, 470);
+            this.ClientSize = new System.Drawing.Size(1663, 695);
             this.Controls.Add(this.dgvHistory);
             this.Name = "CustomerHistory";
             this.Text = "Customerpurchase";

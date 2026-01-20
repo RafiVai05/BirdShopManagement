@@ -45,20 +45,18 @@ namespace BirdShopManagement
 
         private void customer_btn_Click(object sender, EventArgs e)
         {
-            // Clear the existing content in the right panel
             rightPanel.Controls.Clear();
-
-            // Initialize the history form
             CustomerHistory history = new CustomerHistory();
 
-            // Set properties to fit inside the panel
             history.TopLevel = false;
             history.FormBorderStyle = FormBorderStyle.None;
             history.Dock = DockStyle.Fill;
 
-            // Add to panel and show
             rightPanel.Controls.Add(history);
             history.Show();
+
+            
+            history.LoadHistoryData();
         }
     }
 }

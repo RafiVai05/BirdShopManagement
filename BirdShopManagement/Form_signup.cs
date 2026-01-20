@@ -67,5 +67,22 @@ namespace BirdShopManagement
             new Welcome_Form().Show();
             this.Hide();
         }
+
+        private void check_bx_ShowPass_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (check_bx_ShowPass.Checked)
+            {
+
+                txtPass.UseSystemPasswordChar = true;
+
+            }
+            else
+            {
+
+                txtPass.UseSystemPasswordChar = false;
+
+            }
+        }
     }
 }
