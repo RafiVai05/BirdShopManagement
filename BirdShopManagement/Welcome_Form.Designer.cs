@@ -271,7 +271,7 @@ namespace BirdShopManagement
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Welcome_Form";
             this.Text = "Welcome Form";
-            this.Load += new System.EventHandler(this.signin_btn_Click);
+            //this.Load += new System.EventHandler(this.signin_btn_Click);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

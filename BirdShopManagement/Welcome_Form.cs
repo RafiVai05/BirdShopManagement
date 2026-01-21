@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -42,16 +43,9 @@ namespace BirdShopManagement
         {
             string username = textUserName.Text.Trim();
             string password = textPassword.Text.Trim();
-            string selectedRole = comboBox1.SelectedItem?.ToString();
-
-            if (string.IsNullOrEmpty(selectedRole)) return;
+            string userRole = "";
 
             
-            if (selectedRole == "ADMIN" && username == "admin" && password == "admin")
-            {
-                NavigateToAdminDashboard();
-                return;
-            }
 
             
             try
@@ -60,24 +54,32 @@ namespace BirdShopManagement
                 {
                     con.Open();
                     
-                    string query = "SELECT COUNT(*) FROM signInTab WHERE Username=@u AND Password=@p AND UserRole=@r";
+                    string query = "SELECT UserRole FROM signInTab WHERE Username=@u AND Password=@p ";
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
                         cmd.Parameters.AddWithValue("@u", username);
                         cmd.Parameters.AddWithValue("@p", password);
-                        cmd.Parameters.AddWithValue("@r", selectedRole);
-
-                        int count = (int)cmd.ExecuteScalar();
+                        //cmd.Parameters.AddWithValue("@r", selectedRole);
+                        DataTable dt = new DataTable();
+                        dt.Load(cmd.ExecuteReader());
+                        int count = dt.Rows.Count;
                         if (count > 0)
                         {
+
+                            userRole = dt.Rows[0]["UserRole"].ToString();
                             UserSession.CurrentUsername = username;
-                            if (selectedRole == "EMPLOYEE") NavigateToEmployeeDashboard();
-                            else if (selectedRole == "CUSTOMER") NavigateToCustomerDashboard();
+                            if (userRole == "ADMIN")
+                            {
+                                NavigateToAdminDashboard();
+                                return;
+                            }
+                            else if (userRole == "EMPLOYEE") NavigateToEmployeeDashboard();
+                            else if (userRole == "CUSTOMER") NavigateToCustomerDashboard();
                             this.Hide();
                         }
                         else
                         {
-                            MessageBox.Show("Invalid credentials for " + selectedRole);
+                            MessageBox.Show("Invalid credentials for " + userRole);
                         }
                     }
                 }
