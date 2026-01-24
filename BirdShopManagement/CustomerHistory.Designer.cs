@@ -36,6 +36,7 @@
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Order_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +57,7 @@
             this.dgvHistory.ReadOnly = true;
             this.dgvHistory.RowHeadersWidth = 51;
             this.dgvHistory.RowTemplate.Height = 24;
-            this.dgvHistory.Size = new System.Drawing.Size(1604, 686);
+            this.dgvHistory.Size = new System.Drawing.Size(1394, 472);
             this.dgvHistory.TabIndex = 0;
             // 
             // O_ID
@@ -122,11 +123,22 @@
             this.Order_Date.ReadOnly = true;
             this.Order_Date.Width = 125;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(587, 564);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Print";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.print_btn_Click);
+            // 
             // CustomerHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1663, 695);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvHistory);
             this.Name = "CustomerHistory";
             this.Text = "Customerpurchase";
@@ -145,5 +157,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total_Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Order_Date;
+        private System.Windows.Forms.Button button1;
     }
 }

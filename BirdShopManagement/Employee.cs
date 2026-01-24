@@ -36,7 +36,7 @@ namespace BirdShopManagement
                 cmd1.ExecuteNonQuery();
 
                 
-                SqlCommand cmd2 = new SqlCommand("INSERT INTO signInTab (Username, Password, UserRole) VALUES (@u, @p, 'EMPLOYEE')", con);
+                SqlCommand cmd2 = new SqlCommand("INSERT INTO userTab (Username, Password, UserRole) VALUES (@u, @p, 'EMPLOYEE')", con);
                 cmd2.Parameters.AddWithValue("@u", txtUsername.Text.Trim());
                 cmd2.Parameters.AddWithValue("@p", txtPassword.Text.Trim());
                 cmd2.ExecuteNonQuery();
@@ -63,7 +63,7 @@ namespace BirdShopManagement
                 cmd1.ExecuteNonQuery();
 
                 
-                SqlCommand cmd2 = new SqlCommand("UPDATE signInTab SET Username=@u, Password=@p WHERE Username=@oldU", con);
+                SqlCommand cmd2 = new SqlCommand("UPDATE userTab SET Username=@u, Password=@p WHERE Username=@oldU", con);
                 cmd2.Parameters.AddWithValue("@u", txtUsername.Text.Trim());
                 cmd2.Parameters.AddWithValue("@p", txtPassword.Text.Trim());
                 cmd2.Parameters.AddWithValue("@oldU", oldUsername);
@@ -83,7 +83,7 @@ namespace BirdShopManagement
             {
                 con.Open();
                 new SqlCommand($"DELETE FROM Employees WHERE Id={empId}", con).ExecuteNonQuery();
-                new SqlCommand($"DELETE FROM signInTab WHERE Username='{txtUsername.Text}'", con).ExecuteNonQuery();
+                new SqlCommand($"DELETE FROM userTab WHERE Username='{txtUsername.Text}'", con).ExecuteNonQuery();
                 con.Close();
                 LoadEmployeeData();
                 ClearFields();

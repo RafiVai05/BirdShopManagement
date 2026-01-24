@@ -54,7 +54,7 @@ namespace BirdShopManagement
                 {
                     con.Open();
                     
-                    string query = "SELECT UserRole FROM signInTab WHERE Username=@u AND Password=@p ";
+                    string query = "SELECT UserRole FROM userTab WHERE Username=@u AND Password=@p ";
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
                         cmd.Parameters.AddWithValue("@u", username);

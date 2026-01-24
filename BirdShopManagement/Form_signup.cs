@@ -30,7 +30,7 @@ namespace BirdShopManagement
                     con.Open();
 
                     
-                    SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM signInTab WHERE Username=@u", con);
+                    SqlCommand checkCmd = new SqlCommand("SELECT COUNT(*) FROM userTab WHERE Username=@u", con);
                     checkCmd.Parameters.AddWithValue("@u", username);
                     if ((int)checkCmd.ExecuteScalar() > 0)
                     {
@@ -48,7 +48,7 @@ namespace BirdShopManagement
                     cmd1.ExecuteNonQuery();
 
                     
-                    string q2 = "INSERT INTO signInTab (Username, Password, UserRole) VALUES (@un, @pw, 'CUSTOMER')";
+                    string q2 = "INSERT INTO userTab (Username, Password, UserRole) VALUES (@un, @pw, 'CUSTOMER')";
                     SqlCommand cmd2 = new SqlCommand(q2, con);
                     cmd2.Parameters.AddWithValue("@un", username);
                     cmd2.Parameters.AddWithValue("@pw", password);
