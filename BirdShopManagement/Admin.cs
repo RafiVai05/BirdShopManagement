@@ -18,11 +18,7 @@ namespace BirdShopManagement
            
         }
 
-        private void dashboard_btn_Click(object sender, EventArgs e)
-        {
-            rightPanel.Controls.Clear();
-        }
-
+       
         private void employee_btn_Click(object sender, EventArgs e)
         {
             rightPanel.Controls.Clear();
@@ -57,6 +53,40 @@ namespace BirdShopManagement
 
             
             history.LoadHistoryData();
+        }
+
+        private void dashboard_btn_Click(object sender, EventArgs e)
+
+        {
+
+            // 1. Clear previous content
+
+            rightPanel.Controls.Clear();
+
+
+
+            // 2. Create the Dashboard Form
+
+            Admin_dashboard dash = new Admin_dashboard();
+
+
+
+            // 3. Set properties to embed it
+
+            dash.TopLevel = false;
+
+            dash.FormBorderStyle = FormBorderStyle.None;
+
+            dash.Dock = DockStyle.Fill;
+
+
+
+            // 4. Add to panel and show
+
+            rightPanel.Controls.Add(dash);
+
+            dash.Show();
+
         }
     }
 }

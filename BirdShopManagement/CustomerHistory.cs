@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;           // <--- Added for Fonts/Graphics
-using System.Drawing.Printing;  // <--- Added for PrintDocument
+using System.Drawing;           
+using System.Drawing.Printing;  
 using System.Windows.Forms;
 
 namespace BirdShopManagement
@@ -44,83 +44,94 @@ namespace BirdShopManagement
 
         private void print_btn_Click(object sender, EventArgs e)
         {
-            // 1. Create the PrintDocument
-            PrintDocument receipt = new PrintDocument();
+            
+            if (dgvHistory.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please click on an Order (row) to select it first.");
+                return;
+            }
 
-            // 2. Attach the PrintPage event (where the drawing happens)
+            
+            PrintDocument receipt = new PrintDocument();
             receipt.PrintPage += History_PrintPage;
 
-            // 3. Show the Preview Dialog
+           
             PrintPreviewDialog preview = new PrintPreviewDialog();
             preview.Document = receipt;
             preview.WindowState = FormWindowState.Maximized;
             preview.ShowDialog();
         }
 
-        // --- THE PRINTING LOGIC ---
+
         private void History_PrintPage(object sender, PrintPageEventArgs e)
         {
+            
+            DataGridViewRow row = dgvHistory.SelectedRows[0];
+
+            string id = row.Cells["O_ID"].Value?.ToString() ?? "-";
+            string user = row.Cells["Username"].Value?.ToString() ?? "-";
+            string prod = row.Cells["Product_Name"].Value?.ToString() ?? "-";
+            string cat = row.Cells["Category"].Value?.ToString() ?? "-";
+            string qty = row.Cells["Quantity"].Value?.ToString() ?? "0";
+            string price = row.Cells["Total_Price"].Value?.ToString() ?? "0.00";
+            string date = row.Cells["Order_Date"].Value?.ToString() ?? DateTime.Now.ToString();
+
+          
             Graphics g = e.Graphics;
-            Font fontTitle = new Font("Arial", 16, FontStyle.Bold);
-            Font fontHeader = new Font("Arial", 10, FontStyle.Bold);
-            Font fontBody = new Font("Arial", 9, FontStyle.Regular);
+            Font fontTitle = new Font("Arial", 18, FontStyle.Bold);
+            Font fontHeader = new Font("Arial", 12, FontStyle.Bold);
+            Font fontData = new Font("Arial", 12, FontStyle.Regular);
 
-            float y = 20; // Vertical position tracker
-            int leftMargin = 10;
+            float y = 40;
+            int leftMargin = 50;
+            int valuePos = 250; 
 
-            // 1. Draw Title
-            g.DrawString("CUSTOMER PURCHASE HISTORY", fontTitle, Brushes.Black, leftMargin + 30, y);
-            y += 40;
-            g.DrawString("Printed for: " + UserSession.CurrentUsername, fontHeader, Brushes.Black, leftMargin, y);
+           
+            g.DrawString("ORDER DETAILS RECEIPT", fontTitle, Brushes.DarkBlue, leftMargin + 80, y);
+            y += 50;
+            g.DrawLine(Pens.Black, leftMargin, y, 750, y);
+            y += 30;
+
+          
+
+            
+            g.DrawString("Order ID:", fontHeader, Brushes.Black, leftMargin, y);
+            g.DrawString(id, fontData, Brushes.Black, valuePos, y);
+            y += 30;
+
+            
+            g.DrawString("Customer Name:", fontHeader, Brushes.Black, leftMargin, y);
+            g.DrawString(user, fontData, Brushes.Black, valuePos, y);
+            y += 30;
+
+            g.DrawString("Order Date:", fontHeader, Brushes.Black, leftMargin, y);
+            g.DrawString(date, fontData, Brushes.Black, valuePos, y);
+            y += 40; 
+
+            
+            g.DrawLine(Pens.Gray, leftMargin, y, 500, y);
             y += 20;
-            g.DrawString("Date: " + DateTime.Now.ToString(), fontHeader, Brushes.Black, leftMargin, y);
-            y += 40;
 
-            // 2. Draw Table Headers (Manually positioning columns)
-            // Adjust the X coordinates (10, 80, 250, etc.) to fit your column widths
-            g.DrawString("ID", fontHeader, Brushes.Black, leftMargin, y);
-            g.DrawString("Product Name", fontHeader, Brushes.Black, leftMargin + 40, y);
-            g.DrawString("Qty", fontHeader, Brushes.Black, leftMargin + 250, y);
-            g.DrawString("Total", fontHeader, Brushes.Black, leftMargin + 300, y);
-            g.DrawString("Date", fontHeader, Brushes.Black, leftMargin + 400, y);
+            
+            g.DrawString("Product:", fontHeader, Brushes.Black, leftMargin, y);
+            g.DrawString(prod, fontData, Brushes.Black, valuePos, y);
+            y += 30;
 
-            y += 20;
-            g.DrawLine(Pens.Black, leftMargin, y, 750, y); // Draw a line under headers
-            y += 10;
+            g.DrawString("Category:", fontHeader, Brushes.Black, leftMargin, y);
+            g.DrawString(cat, fontData, Brushes.Black, valuePos, y);
+            y += 30;
 
-            // 3. Loop through DataGridView rows and draw them
-            foreach (DataGridViewRow row in dgvHistory.Rows)
-            {
-                // Skip empty new rows if any
-                if (row.IsNewRow) continue;
+            g.DrawString("Quantity:", fontHeader, Brushes.Black, leftMargin, y);
+            g.DrawString(qty, fontData, Brushes.Black, valuePos, y);
+            y += 40; 
 
-                // Get values safely
-                string id = row.Cells["O_ID"].Value?.ToString() ?? "";
-                string prod = row.Cells["Product_Name"].Value?.ToString() ?? "";
-                string qty = row.Cells["Quantity"].Value?.ToString() ?? "";
-                string price = row.Cells["Total_Price"].Value?.ToString() ?? "";
-                string date = row.Cells["Order_Date"].Value?.ToString() ?? "";
+          
+            g.DrawString("TOTAL PRICE:", fontTitle, Brushes.DarkGreen, leftMargin, y);
+            g.DrawString("BDT " + price, fontTitle, Brushes.DarkGreen, valuePos, y);
 
-                // Shorten date to just the date part if it's too long
-                if (date.Length > 10) date = date.Substring(0, 10);
-
-                // Draw the Row Data
-                g.DrawString(id, fontBody, Brushes.Black, leftMargin, y);
-                g.DrawString(prod, fontBody, Brushes.Black, leftMargin + 40, y);
-                g.DrawString(qty, fontBody, Brushes.Black, leftMargin + 250, y);
-                g.DrawString(price, fontBody, Brushes.Black, leftMargin + 300, y);
-                g.DrawString(date, fontBody, Brushes.Black, leftMargin + 400, y);
-
-                y += 25; // Move down for next row
-
-                // Simple check to stop printing if we run out of page space
-                if (y > e.MarginBounds.Bottom + 100)
-                {
-                    // Note: This simple code doesn't handle multiple pages automatically
-                    // It just stops printing at the bottom.
-                    break;
-                }
-            }
+           
+            y += 100;
+            g.DrawString("Thank you for shopping with Bird Shop!", new Font("Arial", 10, FontStyle.Italic), Brushes.Gray, leftMargin + 80, y);
         }
     }
 }

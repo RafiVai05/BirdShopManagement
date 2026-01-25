@@ -33,6 +33,7 @@ namespace BirdShopManagement
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -46,8 +47,6 @@ namespace BirdShopManagement
             this.textUserName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.exit_btn = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -72,6 +71,15 @@ namespace BirdShopManagement
             this.label1.Size = new System.Drawing.Size(227, 62);
             this.label1.TabIndex = 1;
             this.label1.Text = "      WELCOME TO\r\n ANGRY BIRD SHOP";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::BirdShopManagement.Properties.Resources.images__1_1;
+            this.pictureBox1.Location = new System.Drawing.Point(27, 95);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(262, 186);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // label3
             // 
@@ -224,36 +232,12 @@ namespace BirdShopManagement
             this.exit_btn.UseVisualStyleBackColor = false;
             this.exit_btn.Click += new System.EventHandler(this.exit_btn_Click);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.ForeColor = System.Drawing.Color.MediumAquamarine;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "ADMIN",
-            "EMPLOYEE",
-            "CUSTOMER"});
-            this.comboBox1.Location = new System.Drawing.Point(338, 123);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(216, 24);
-            this.comboBox1.TabIndex = 68;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::BirdShopManagement.Properties.Resources.images__1_1;
-            this.pictureBox1.Location = new System.Drawing.Point(27, 95);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(262, 186);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // Welcome_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(600, 600);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.exit_btn);
             this.Controls.Add(this.forget_btn);
             this.Controls.Add(this.label4);
@@ -271,7 +255,6 @@ namespace BirdShopManagement
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Welcome_Form";
             this.Text = "Welcome Form";
-            //this.Load += new System.EventHandler(this.signin_btn_Click);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -296,7 +279,6 @@ namespace BirdShopManagement
         private Label label8;
         private Label label1;
         private Button exit_btn;
-        private ComboBox comboBox1;
         private PictureBox pictureBox1;
     }
 }

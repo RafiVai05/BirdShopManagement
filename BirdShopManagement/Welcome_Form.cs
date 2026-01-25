@@ -14,24 +14,9 @@ namespace BirdShopManagement
             InitializeComponent();
         }
 
-        private void Welcome_Form_Load(object sender, EventArgs e)
-        {
-            comboBox1.Items.Clear();
-            comboBox1.Items.Add("ADMIN");
-            comboBox1.Items.Add("EMPLOYEE");
-            comboBox1.Items.Add("CUSTOMER");
-            SetLoginControlsVisibility(false);
-        }
+      
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetLoginControlsVisibility(true);
-            string role = comboBox1.SelectedItem.ToString();
-            bool isCustomer = (role == "CUSTOMER");
-            signup.Visible = isCustomer;
-            no_account_lbl.Visible = isCustomer;
-            forget_btn.Visible = isCustomer;
-        }
+        
 
         private void SetLoginControlsVisibility(bool visible)
         {
