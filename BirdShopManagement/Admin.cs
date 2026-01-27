@@ -59,19 +59,18 @@ namespace BirdShopManagement
 
         {
 
-            // 1. Clear previous content
 
             rightPanel.Controls.Clear();
 
 
 
-            // 2. Create the Dashboard Form
+           
 
             Admin_dashboard dash = new Admin_dashboard();
 
 
 
-            // 3. Set properties to embed it
+           
 
             dash.TopLevel = false;
 
@@ -81,7 +80,7 @@ namespace BirdShopManagement
 
 
 
-            // 4. Add to panel and show
+            
 
             rightPanel.Controls.Add(dash);
 
